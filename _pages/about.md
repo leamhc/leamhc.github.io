@@ -1,26 +1,46 @@
 ---
 layout: about
-title: about
+title: About Me
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href='#'>
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: lea_beach.jpg
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  more_info: 
 
-news: true # includes a list of news items
-latest_posts: true # includes a list of the newest posts
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+news: false # includes a list of news items
+latest_posts: false # includes a list of the newest posts
+selected_papers: false # includes a list of papers marked as "selected={true}"
+social: false # includes social icons at the bottom of the page
 ---
 
-SOME OBVIOUS CHANGES. First Commit. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I'm Lea Mok, a curious data communicator and political science student originally from Hong Kong.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I worked as a multimedia journalist before persuing a master in political science in London. During my time at [Hong Kong Free Press](https://hongkongfp.com/author/leamok/) and Stand News, my duties included creating data graphics, data-driven features, short documentaries  and court reporting. I held a bachelor degree in journalism (creative media).
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+My current focus includes data visualization, quantitative analysis, authoritarian election system and rewatching The Office.
+
+`Education`
+
+Msc Comparative Politics, London School of Economics and Political Science
+
+Bsc Jounalism and Communication (Creative Media), The Chinese University of Hong Kong
+
+`Experience`
+
+Developer, 2024 Optiver Python Coding Challenge
+
+Developer, 2023 LSE Data Science Society Project Division
+
+Multimedia Reporter, Hong Kong Free Press
+
+Political Reporter, Stand News Hong Kong
+
+
+Let's [email→](mailto:leamhc@gmail.com)
+
+Let's [delve into numbers and graphics→](https://leamhc.github.io/projects/)
+
+Let's [have a coffee→](https://www.linkedin.com/in/lea-mok-3591a8232/)
