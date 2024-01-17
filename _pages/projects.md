@@ -5,7 +5,7 @@ permalink: /projects/
 description: Things I made for fun.
 nav: true
 nav_order: 3
-display_categories: [Data, Illustration]
+display_categories: [Data, Photo]
 horizontal: false
 ---
 

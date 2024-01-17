@@ -6,7 +6,7 @@ subtitle: <a href='#'>
 
 profile:
   align: right
-  image: lea_beach.jpg
+  image: about_me/lea_profile.jpg
   image_circular: false # crops the image to make it circular
   more_info: 
 
@@ -18,9 +18,9 @@ social: false # includes social icons at the bottom of the page
 
 I'm Lea Mok, a curious data communicator and political science student originally from Hong Kong.
 
-I worked as a multimedia journalist before persuing a master in political science in London. During my time at [Hong Kong Free Press](https://hongkongfp.com/author/leamok/) and Stand News, my duties included creating data graphics, data-driven features, short documentaries  and court reporting. I held a bachelor degree in journalism (creative media).
+I worked as a multimedia journalist before persuing a master in political science in London. During my time at [Hong Kong Free Press](https://hongkongfp.com/author/leamok/) and Stand News, my duties included creating data-driven features, short documentaries  and court reporting. I also held a bachelor degree in journalism (creative media).
 
-My current focus includes data visualization, quantitative analysis, authoritarian election system and rewatching The Office.
+My current focus includes data visualization, quantitative analysis, authoritarian election system, and rewatching The Office.
 
 `Education`
 
