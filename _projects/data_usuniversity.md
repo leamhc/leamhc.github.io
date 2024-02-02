@@ -1,6 +1,6 @@
 ---
 layout: page
-title: US university distribution map
+title: ttmap practice - US university distribution map
 description: A map showing all the "very good research universities."
 img: /assets/img/project/data/us_universities.gif
 importance: 1

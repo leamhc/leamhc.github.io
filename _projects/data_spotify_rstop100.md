@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Top Artists of the 2010s on today's Spotify
+title: ggplot/plotly practice - Top Artists of the 2010s on today's Spotify
 description: Who still got the most popular songs on the music platform?
-img: /assets/img/project/data/Heatmap_RS.gif
+img: /assets/img/project/photo/RS_spotify.jpeg
 importance: 1
 category: Data
 related_publications: false
