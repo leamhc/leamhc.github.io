@@ -20,13 +20,21 @@ Hiya, this is Lea.
 
 I worked as a multimedia journalist in Hong Kong and am currently pursuing a master in political science in London. During my time at [Hong Kong Free Press](https://hongkongfp.com/author/leamok/) and Stand News, my duties included creating data-driven features, short documentaries  and court reporting. I also hold a bachelor degree in journalism.
 
+I worked as a one-man-band most of the time, being the photographer, videographer, animator, writer and researcher for most of my videos.
+
 My current focus includes data visualization, quantitative textual analysis, studying authoritarian election systems, hiking, and rewatching The Office.
+
+------------------------------------------------
 
 `Education`
 
 Msc Comparative Politics, London School of Economics and Political Science
 
-Bsc Jounalism and Communication (Creative Media), The Chinese University of Hong Kong
+Bsc Jounalism and Communication, The Chinese University of Hong Kong
+
+Summer Exchange (film editing, cinematography), The University of California, Los Angeles
+
+------------------------------------------------
 
 `Experience`
 
@@ -38,6 +46,11 @@ Multimedia Reporter, Hong Kong Free Press
 
 Political Reporter, Stand News Hong Kong
 
+------------------------------------------------
+
+`Contact`
+
+My socials are on the upper left corner of this page.
 
 Let's [email→](mailto:leamhc@gmail.com)
 
