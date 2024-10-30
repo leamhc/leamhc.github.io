@@ -1,8 +1,8 @@
 ---
 layout: page
-title: ggplot/plotly practice - Top Artists of the 2010s on today's Spotify
-description: Who still got the most popular songs on the music platform?
-img: /assets/img/project/photo/RS_spotify.jpeg
+title: Top Artists of the 2010s on today's Spotify
+description: This data science project involved scraping information on the 100 greatest artists of all time and analyzing their popularity on Spotify using R. I created three interactive charts—click through to explore which artists still have the largest fan base after all these years!
+img: /assets/img/project/Top Artist/chart.png
 importance: 1
 category: Data
 related_publications: false

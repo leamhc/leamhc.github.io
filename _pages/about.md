@@ -6,8 +6,8 @@ subtitle: <a href='#'>
 
 profile:
   align: right
-  image: about_me/lea_profile.jpg
-  image_circular: false # crops the image to make it circular
+  image: about_me/lea_profile-2.jpg
+  image_circular: true # crops the image to make it circular
   more_info: 
 
 news: false # includes a list of news items
@@ -18,11 +18,7 @@ social: false # includes social icons at the bottom of the page
 
 Hiya, this is Lea.
 
-I worked as a multimedia journalist in Hong Kong and am currently pursuing a master in political science in London. During my time at [Hong Kong Free Press](https://hongkongfp.com/author/leamok/) and Stand News, my duties included creating data-driven features, short documentaries  and court reporting. I also hold a bachelor degree in journalism.
-
-I worked as a one-man-band most of the time, being the photographer, videographer, animator, writer and researcher for most of my videos.
-
-My current focus includes data visualization, quantitative textual analysis, studying authoritarian election systems, hiking, and rewatching The Office.
+I worked as a multimedia journalist in Hong Kong and am currently pursuing a master in political science in London. During my time at [Bloomberg News](https://www.bloomberg.com/authors/AW57Dn57djQ/lea-mok), [Hong Kong Free Press](https://hongkongfp.com/author/leamok/) and Stand News, my duties included creating data-driven features, short documentaries  and court reporting. I also hold a bachelor degree in journalism.
 
 ------------------------------------------------
 
