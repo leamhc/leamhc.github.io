@@ -12,7 +12,7 @@ menu_settings:
     - title: '░ Data Visualization'
       url: '/'
     - title: '░ Published Articles'
-      url: '/article/'
+      url: '/blog'
     - title: '░ About Me'
       url: '/about'
 
