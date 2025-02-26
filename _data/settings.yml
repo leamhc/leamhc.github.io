@@ -1,26 +1,24 @@
 basic_settings:
-  site_title: Index
-  site_tagline: A minimal, fixed sidebar grid portfolio Jekyll theme.
-  favicon_image: /images/favicon.png
+  site_title: Lea M.
+  site_tagline: Make Data Less Daunting.
+  favicon_image: /images/logo.png
 
 header_settings:
   logo_image: 
-  logo_width: 200
+  logo_width: 900
 
 menu_settings:
   menu_items:
-    - title: 'Projects'
+    - title: '░ Data Visualization'
       url: '/'
-    - title: 'Blog'
-      url: '/blog/'
-    - title: 'About'
+    - title: '░ Published Articles'
+      url: '/article/'
+    - title: '░ About Me'
       url: '/about'
-    - title: 'Contact'
-      url: '/contact'
 
 grid_settings:
-  overlay_opacity: 0.8
-  grid_spacing: 20
+  overlay_opacity: 0.9
+  grid_spacing: 10
 
 contact_settings:
   form_action: ''
@@ -64,25 +62,25 @@ color_settings:
   text_light_color: '#ABB7B7'
   accent_color: '#0C5DF2'
   border_color: '#dddddd'
-  overlay_background_color: '#0C5DF2'
-  overlay_text_color: '#ffffff'
+  overlay_background_color: '#ffffff'
+  overlay_text_color: '#2A2F36'
   overlay_accent_color: '#2A2F36'
   error_color: '#D64541'
 
 font_settings:
-  font_embed: '<link href="https://fonts.googleapis.com/css?family=Montserrat:300,500" rel="stylesheet">'
-  title_font: '"Montserrat", sans-serif'
+  font_embed: '<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&family=Yanone+Kaffeesatz:wght@200..700&display=swap" rel="stylesheet">'
+  title_font: '"Thasadith", serif'
   body_font: '"Montserrat", sans-serif'
   regular_weight: 300
   bold_weight: 500
   site_title:
     small_size: 25
     medium_size: 35
-    large_size: 45
+    large_size: 60
     weight: 500
     letter_spacing: -0.02
   site_tagline:
-    small_size: 16
+    small_size: 10
     medium_size: 18
     large_size: 20
     weight: 300
