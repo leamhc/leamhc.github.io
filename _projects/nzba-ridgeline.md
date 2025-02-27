@@ -1,104 +1,80 @@
 ---
-title: 'Fossil Fuel Financing Rigdeline'
-subtitle: 'This is a demo'
+title: '⋱ ESG Is No Longer Cool For Big Banks'
+subtitle: '{Ridgeline}: R, Adobe Illustrator, API'
 date: 2025-2-25 00:00:00
-description: This page is a demo that shows everything you can do inside portfolio and blog posts.
-featured_image: '/images/nzba/NZBAridgeline.png'
+description: 
+featured_image: '/images/project/png/nzba/NZBAridgeline.png'
 ---
 
-![](/images/demo/demo-landscape.jpg)
+![](/images/project/png/nzba/NZBAridgeline.png)
 
-## Demo content
+## The Story
 
-This page is a demo that shows everything you can do inside portfolio and blog posts.
+Three years ago, 450 financial firms pledged USD 130 trillion to finance the net-zero transition. Now, they’re rushing in the opposite direction - pulling out of climate-related initiatives. 
 
-We've included everything you need to create engaging posts about your work, and show off your case studies in a beautiful way.
+Within three months of Trump's victory at the ballot box, 12 North American banks have withdrawn from the UN-sponsored **Net Zero Banking Alliance (NZBA)**.
 
-**Obviously,** we’ve styled up *all the basic* text formatting options [available in markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+The impact of this exodus remains unclear, but the message is obvious - talking about the green transition is no longer in vogue. The ESG label, once a badge of corporate virtue, has now become a legal minefield. 
 
-You can create lists:
+░ *The full story is available to subscribers of [Bond Radar](https://www.bondradar.com/), a London-based financial news & data company - 28 Feb 2025*
 
-* Simple bulleted lists
-* Like this one
-* Are cool
+## The Graph
 
-And:
+This is a graph from the same story as this one [here](/project/nzba-treemap).
 
-1. Numbered lists
-2. Like this other one
-3. Are great too
+This is my first article published on Bond Radar’s platform. The exodus of Wall Street giants has been widely covered by major media outlets as well as the editorial and research branches of financial firms - most accompanied their articles with line graphs showing the departing U.S. banks' fossil fuel financing over the years. (See the [article and graphs](https://www.twentyfouram.com/insights/trump-dunks-on-the-nzba-with-wall-street-exodus?utm_campaign=Blog&utm_content=Organic+Post&utm_medium=Social+Organic&utm_source=LinkedIn&utm_term=Global)) by one of our interviewees.
 
-You can also add blockquotes, which are shown at a larger width to help break up the layout and draw attention to key parts of your content:
+I wanted to take a different approach. 
 
-> “Simple can be harder than complex: You have to work hard to get your thinking clean to make it simple. But it’s worth it in the end because once you get there, you can move mountains.”
+**Research Question:**
+- Did banks actually reduce fossil fuel financing and underwriting after joining the climate alliance?
+- Which banks have underwritten the most bonds in the fossil fuel sector and the most ESG-labelled bonds?
 
-The theme also supports markdown tables:
+**Tool used:**
+Rstudio, Adobe Illustrator, Bond Radar API
 
-| Item                 | Author        | Supports tables? | Price |
-|----------------------|---------------|------------------|-------|
-| Duet Jekyll Theme    | Jekyll Themes | Yes              | $49   |
-| Index Jekyll Theme   | Jekyll Themes | Yes              | $49   |
-| Journal Jekyll Theme | Jekyll Themes | Yes              | $49   |
+## Findings
 
-And footnotes[^1], which link to explanations[^2] at the bottom of the page[^3].
+The final graph shows a stark contrast between the trend in fossil fuel financing and that of ESG financing - but we’d be naive to believe that NZBA membership alone drove this shift.
 
-[^1]: Beautiful modern, minimal theme design.
-[^2]: Powerful features to show off your work.
-[^3]: Maintained and supported by the theme developer.
+When the alliance was formed in April 2021, then-U.S. President Joe Biden signed a series of executive orders to roll back Trump-era policies, pledging to halve the nation’s emissions by 2030. 
 
-You can throw in some horizontal rules too:
+As a result, dollar-denominated ESG issuance surged - even as the overall bond market, particularly in the fossil fuel sector, slowed dramatically due to rising Fed interest rates.
 
----
+Another thing to note is that, although Wall Street banks have underwritten far more bonds than European banks, their ESG book lags behind that of their counterparts.
 
-### Image galleries
+So, while this graph presents a key finding, it likely isn’t enough to provide a full explanation.
 
-Here's a really neat custom feature we added – galleries:
+## The Script
+```R
 
-<div class="gallery" data-columns="3">
-	<img src="/images/demo/demo-portrait.jpg">
-	<img src="/images/demo/demo-landscape.jpg">
-	<img src="/images/demo/demo-square.jpg">
-	<img src="/images/demo/demo-landscape-2.jpg">
-</div>
-
-Inspired by the Galleries feature from WordPress, we've made it easy to create grid layouts for your images. Just use a bit of simple HTML in your post to create a masonry grid image layout:
-
-```html
-<div class="gallery" data-columns="3">
-    <img src="/images/demo/demo-portrait.jpg">
-    <img src="/images/demo/demo-landscape.jpg">
-    <img src="/images/demo/demo-square.jpg">
-    <img src="/images/demo/demo-landscape-2.jpg">
-</div>
+plot2 <- ggplot(esg_data, aes(Month,
+  	y = fct_reorder(Lead, Value), height = Value)) +
+  		geom_density_ridges(
+    		stat = "identity", scale = 5, 
+			linewidth = 0, alpha = 0.5,
+            fill = "#005F91", color = "transparent"
+ ) +
+  scale_x_date(
+	limits = c(as.Date("2016-01-01"), as.Date("2024-01-01"))) + 
+  coord_cartesian(ylim = c(0, 30)) +
+  labs(title = "Title", y = "Lead", x = "Month") +
+  theme(
+    plot.title = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.text.y = element_text(
+		face="bold",family = "Bahnschrift", size = 80),
+    axis.text.x = element_text(
+		family = "Bahnschrift", size = 120),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank(),
+    panel.border = element_blank(),
+    panel.background = element_rect(fill='transparent'), 
+    plot.background = element_rect(
+		fill='transparent', color=NA),
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank(), 
+    legend.background = element_rect(fill='transparent'), 
+    legend.box.background = element_rect(fill='transparent') 
+  )
 ```
-
-*See what we did there? Code and syntax highlighting is built-in too!*
-
-Change the number inside the 'columns' setting to create different types of gallery for all kinds of purposes. You can even click on each image to seamlessly enlarge it on the page.
-
----
-
-### Image carousels
-
-Here's another gallery with only one column, which creates a carousel slide-show instead.
-
-A nice little feature: the carousel only advances when it is in view, so your visitors won't scroll down to find it half way through your images.
-
-<div class="gallery" data-columns="1">
-	<img src="/images/demo/demo-landscape.jpg">
-	<img src="/images/demo/demo-landscape-2.jpg">
-</div>
-
-### What about videos?
-
-Videos are an awesome way to show off your work in a more engaging and personal way, and we’ve made sure they work great on our themes. Just paste an embed code from YouTube or Vimeo, and the theme makes sure it displays perfectly:
-
-<iframe src="https://player.vimeo.com/video/19536258?color=ffffff&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
----
-
-## Pretty cool, huh?
-
-We've packed this theme with powerful features to show off your work. Why not put them to use on your new portfolio?
-
-<a href="https://jekyllthemes.io/theme/index-portfolio-jekyll-theme" class="button button--large">Get This Theme</a>

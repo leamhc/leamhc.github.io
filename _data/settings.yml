@@ -5,15 +5,15 @@ basic_settings:
 
 header_settings:
   logo_image: 
-  logo_width: 900
+  logo_width: 200
 
 menu_settings:
   menu_items:
-    - title: '░ Data Visualization'
+    - title: '▍ Data Visualization'
       url: '/'
-    - title: '░ Published Articles'
+    - title: '▍ Selected Work'
       url: '/blog'
-    - title: '░ About Me'
+    - title: '▍ About Me'
       url: '/about'
 
 grid_settings:
@@ -28,7 +28,7 @@ contact_settings:
 
 social_settings:
   facebook_url: ''
-  twitter_url: ''
+  twitter_url: 'https://x.com/leamokhc'
   instagram_url: ''
   snapchat_url: ''
   youtube_url: ''
@@ -52,7 +52,7 @@ social_settings:
   soundcloud_url: ''
   spotify_url: ''
   bandcamp_url: ''
-  linkedin_url: ''
+  linkedin_url: 'https://www.linkedin.com/in/lea-mok-3591a8232/'
 
 color_settings:
   background_color: '#ffffff'
