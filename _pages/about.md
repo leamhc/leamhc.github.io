@@ -10,9 +10,9 @@ featured_image: /images/portrait.png
 
 ⋰ A Hong Kong-born financial reporter based in London.
 
-⋰ A data & video journalist covering finance, protests, and court news.
+⋰ A politics gradurate who produced video and data explainers.
 
-⋰ An Adobe software user, RStudio regular, and Python tinkerer.
+⋰ An Adobe user, RStudio regular, and Python tinkerer.
 
 ## Work Experience
 

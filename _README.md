@@ -1,8 +1,18 @@
-# Index by JekyllThemes.io – Instructions
 
-If you have any questions or feedback about the theme, don't hesitate to reach out to hello@jekyllthemes.io for 1-to-1 support direct from the developers.
+## For myself
 
----
+**Run the website live:**
+
+1. cd directory
+2. bundle exec jekyll serve
+
+**Push back to github:**
+
+see [here](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)
+1. git add .
+2. git commit -m 'notes'
+3. git push -u origin gh-pages
+
 
 ## Getting started
 
