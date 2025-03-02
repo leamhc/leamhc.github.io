@@ -1,6 +1,6 @@
 ---
 title: '⋱ Two Fixed Rate Loans in a Week'
-subtitle: '[Bubble Cahrt]: R, Adobe Illustrator, API'
+subtitle: '[Bubble Chart]: R, Adobe Illustrator, API'
 date: 2025-02-20 00:00:00
 description: 
 featured_image: '/images/project/png/gettyimagex/getty.png'
@@ -8,7 +8,7 @@ featured_image: '/images/project/png/gettyimagex/getty.png'
 
 ## The Story
 
-Fixed-rate leveraged loans are rare - like 2 in 1400 rare.
+Fixed-rate leveraged loans are rare - like 1 in 800 rare.
 
 Then suddenly, as my editor Jack described in his feature article, they were like London buses - two fixed-rate TLBs came along at once in early February 2025.
 
@@ -22,7 +22,7 @@ And they weren’t from nobodies. In fact, one was issued by the company of the 
 
 ## The Graph
 
-These two loan deals aren’t just rare—they’re also expensive for the borrowers.
+These two loan deals aren’t just rare - they’re also expensive for the borrowers.
 
 To show just how costly they are, I created this bubble chart of all leveraged loans (loans issued by sub-investment-grade borrowers, essentially, companies that are not very "credible") priced between September 2024 and mid-February 2025. The bubble size represents loan amounts in dollars, while the colour reflects the credit rating assigned by Moody’s. I also factored in the [SOFR base rate](https://www.newyorkfed.org/markets/reference-rates/sofr) (437 basis points as of 18 Feb 2025) for floating-rate loans and compared them with fixed-rate ones.
 

@@ -37,7 +37,7 @@ As shown in the graphs:
 
 ▍ Using a dictionary-based method, we see that the pro-Beijing camp used more positive language in the council compared to their own rhetoric before 2020 (bottom left).
 
-▍ Most pro-Beijing lawmakers also avoided discussing LGBTQ+ and press freedom—both sensitive topics for the Communist Party—but talked significantly more about green policies and women’s welfare (bottom middle).
+▍ Most pro-Beijing lawmakers also avoided discussing LGBTQ+ and press freedom - both sensitive topics for the Communist Party - but talked significantly more about green policies and women’s welfare (bottom middle).
 
 While these results were somewhat expected, proving such shifts would be much harder without a quantitative text analysis tool like Quanteda.
 

@@ -10,7 +10,7 @@ featured_image: /images/portrait.png
 
 ⋰ A Hong Kong-born financial reporter based in London.
 
-⋰ A politics gradurate who produced video and data explainers.
+⋰ A politics graduate who just so happens to produce video and data explainers.
 
 ⋰ An Adobe user, RStudio regular, and Python tinkerer.
 
