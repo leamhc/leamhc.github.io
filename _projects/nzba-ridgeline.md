@@ -30,8 +30,8 @@ I wanted to take a different approach.
 - Did banks actually reduce fossil fuel financing and underwriting after joining the climate alliance?
 - Which banks have underwritten the most bonds in the fossil fuel sector and the most ESG-labelled bonds?
 
-**Tool used:**
-Rstudio, Adobe Illustrator, Bond Radar API
+|**Tools Used** |Rstudio, Adobe Illustrator|
+|**Data Source**|Bond Radar API|
 
 ## Findings
 

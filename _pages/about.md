@@ -6,7 +6,7 @@ featured_image: /images/portrait.png
 
 ![](/images/portrait.png)
 
-## Hi, this is Lea. I am...
+## Hi, this is Lea Mok. I am...
 
 ⋰ A Hong Kong-born financial reporter based in London.
 

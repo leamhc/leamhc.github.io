@@ -1,103 +1,30 @@
 ---
-title: 'Demo Post'
-date: 2024-09-30 00:00:00
+title: 'Bloomberg: Panda Bond Sales'
+date: 2024-07-25 00:00:00
 description:
-featured_image: '/images/blog/greenbondbbg.png'
+featured_image: '/images/blog/pandabondbbg.png'
 ---
 
-![](/images/demo/demo-landscape.jpg)
+![](/images/blog/pandabondchart.png)
 
-## Demo content
+Read the [article](https://www.bloomberg.com/news/articles/2024-07-24/panda-bond-sales-hit-record-as-cheap-credit-lures-global-issuers?cmpid=socialflow-twitter-business&utm_source=twitter&utm_campaign=socialflow-organic&utm_medium=social&utm_content=business) on Bloomberg News.
 
-This page is a demo that shows everything you can do inside portfolio and blog posts.
+## Panda Bond Sales Hit Record as Cheap Credit Lures Global Issuers
 
-We've included everything you need to create engaging posts about your work, and show off your case studies in a beautiful way.
+Sales of panda bonds jumped to a record $17 billion so far this year, as foreign borrowers piled into China’s onshore market in search of cheaper borrowing costs.
 
-**Obviously,** we’ve styled up *all the basic* text formatting options [available in markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+Global issuers such as Bayer AG, BASF SE and Shangri-La Asia Ltd. are spearheading the surge, with 10 foreign companies accounting for about 30% of the panda bond sales so far this year, according to Bloomberg-compiled data. The previous record for a comparable period was $11.8 billion of sales in 2023.
 
-You can create lists:
+The bonanza reflects how borrowing costs on the mainland have slid as the People’s Bank of China seeks to kick-start growth, while other major central banks keep policy rates high to battle inflation. Proceeds raised by issuing panda bonds can be retained in China or remitted overseas.
 
-* Simple bulleted lists
-* Like this one
-* Are cool
+“A lot of international companies have been looking at how to actually invest in China, set a footprint and think hard about how to use the onshore capital markets to finance those operations,” said Samuel Fischer, Deutsche Bank’s head of China onshore debt capital markets.
 
-And:
+The average borrowing costs for panda bonds — typically sold by offshore units of Chinese companies — have dropped to 2.44% this year, the lowest since they began to be sold in 2005. This week, corporate debt yields sank to record lows after the PBOC cut a key short-term policy rate in the first reduction in almost a year.
 
-1. Numbered lists
-2. Like this other one
-3. Are great too
+Chinese investors, meanwhile, are looking for better returns after government bond yields fell to a more than two decade low, Fischer said.
 
-You can also add blockquotes, which are shown at a larger width to help break up the layout and draw attention to key parts of your content:
+The increase in interest from foreign firms puts panda bond issuance on track to easily surpass last year’s total of 154.5 billion yuan ($21.2 billion), which was a record at the time.
 
-> “Simple can be harder than complex: You have to work hard to get your thinking clean to make it simple. But it’s worth it in the end because once you get there, you can move mountains.”
+While yuan-denominated notes are likely to remain cheaper than debt in other currencies, US central bankers are starting to look to ease policy amid growing confidence that price stability is within sight.
 
-The theme also supports markdown tables:
-
-| Item                 | Author        | Supports tables? | Price |
-|----------------------|---------------|------------------|-------|
-| Duet Jekyll Theme    | Jekyll Themes | Yes              | $49   |
-| Index Jekyll Theme   | Jekyll Themes | Yes              | $49   |
-| Journal Jekyll Theme | Jekyll Themes | Yes              | $49   |
-
-And footnotes[^1], which link to explanations[^2] at the bottom of the page[^3].
-
-[^1]: Beautiful modern, minimal theme design.
-[^2]: Powerful features to show off your work.
-[^3]: Maintained and supported by the theme developer.
-
-You can throw in some horizontal rules too:
-
----
-
-### Image galleries
-
-Here's a really neat custom feature we added – galleries:
-
-<div class="gallery" data-columns="3">
-	<img src="/images/demo/demo-portrait.jpg">
-	<img src="/images/demo/demo-landscape.jpg">
-	<img src="/images/demo/demo-square.jpg">
-	<img src="/images/demo/demo-landscape-2.jpg">
-</div>
-
-Inspired by the Galleries feature from WordPress, we've made it easy to create grid layouts for your images. Just use a bit of simple HTML in your post to create a masonry grid image layout:
-
-```html
-<div class="gallery" data-columns="3">
-    <img src="/images/demo/demo-portrait.jpg">
-    <img src="/images/demo/demo-landscape.jpg">
-    <img src="/images/demo/demo-square.jpg">
-    <img src="/images/demo/demo-landscape-2.jpg">
-</div>
-```
-
-*See what we did there? Code and syntax highlighting is built-in too!*
-
-Change the number inside the 'columns' setting to create different types of gallery for all kinds of purposes. You can even click on each image to seamlessly enlarge it on the page.
-
----
-
-### Image carousels
-
-Here's another gallery with only one column, which creates a carousel slide-show instead.
-
-A nice little feature: the carousel only advances when it is in view, so your visitors won't scroll down to find it half way through your images.
-
-<div class="gallery" data-columns="1">
-	<img src="/images/demo/demo-landscape.jpg">
-	<img src="/images/demo/demo-landscape-2.jpg">
-</div>
-
-### What about videos?
-
-Videos are an awesome way to show off your work in a more engaging and personal way, and we’ve made sure they work great on our themes. Just paste an embed code from YouTube or Vimeo, and the theme makes sure it displays perfectly:
-
-<iframe src="https://player.vimeo.com/video/19536258?color=ffffff&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
----
-
-## Pretty cool, huh?
-
-We've packed this theme with powerful features to show off your work. Why not put them to use on your new portfolio?
-
-<a href="https://jekyllthemes.io/theme/index-portfolio-jekyll-theme" class="button button--large">Get This Theme</a>
+Policymakers have laid the groundwork for a rate cut in speeches over recent weeks, and Federal Reserve Chairman Jerome Powell is expected to flag it more explicitly after a policy meeting on July 30-31.

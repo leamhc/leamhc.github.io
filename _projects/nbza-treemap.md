@@ -22,14 +22,14 @@ Within three months of Trump's victory at the ballot box, 12 North American bank
 - How important is the alliance? How can that be shown?
 - Are the departing U.S. banks significantly larger than the remaining member banks?
 
-**Tool used:**
-Rstudio, Adobe Illustrator, Bloomberg Terminal
+|**Tools Used**|Rstudio, Adobe Illustrator, Bloomberg Terminal|
+|**Data Source**| Bloomberg|
 
 Using the list of fossil fuel companies from the [Banking on Climate Chaos Report 2024](https://www.bankingonclimatechaos.org/wp-content/uploads/2024/06/BOCC_2024_vF2.pdf), I downloaded the league table for fossil fuel financing and underwriting with SCRH{GO} & W{GO}, then calculated the sector shares of the remaining NZBA members versus the departing banks.
 
 ## Findings
 
-According to the final graph, the departing financial firms accounted for over one - fifth of global fossil fuel bond financing in 2024. The remaining NZBA members - mostly European and Japanese banks—made up another fifth of the total.
+According to the final graph, the departing financial firms accounted for over one-fifth of global fossil fuel bond financing in 2024. The remaining NZBA members - mostly European and Japanese banks - made up another fifth of the total.
 
 As it turns out, although only 12 of the original 147 members have left, the alliance’s presence in the sector has effectively been cut in half.
 
