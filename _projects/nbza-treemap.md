@@ -10,7 +10,7 @@ featured_image: '/images/project/png/nzba/NZBAtreemap.png'
 
 This is a graph from the same story as this one [here](/project/nzba-ridgeline).
 
-Within three months of Trump's victory at the ballot box, 12 North American banks have withdrawn from the UN-sponsored **Net Zero Banking Alliance (NZBA)**.
+Within three months of Trump's victory at the ballot box, over a dozen investment banks have withdrawn from the UN-sponsored **Net Zero Banking Alliance (NZBA)**.
 
 ░ *The full story is available to subscribers of [Bond Radar](https://www.bondradar.com/), a London-based financial news & data company - 28 Feb 2025* 
 

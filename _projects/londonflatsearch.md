@@ -28,6 +28,5 @@ You’d think something like this probably already existed, but to my surprise, 
 
 It’s not the most polished graph - as I only built it for personal use - but it was incredibly useful in helping me to land my current flat.
 
-|**Data Source** | Police.UK (crime rate), Google API (commute time, which is set to my office on Fleet Street, central london), Findthatpostcode API (postcode crime mapping), tube-postcodes/Robin Kearney@GitHub (tube station per postcode)|
+|**Data Source** | Police.UK (crime rate), Valuation Office Agency (median rent), Google API (commute time, which is set to my office on Fleet Street, central london), Findthatpostcode API (postcode crime mapping), tube-postcodes/Robin Kearney@GitHub (tube station per postcode)|
 |**Tools used** |Rstudion (Selenium, httr, jsonlite), various APIs|
-|**Commute time** |Based on travel time to EC4A 3DQ by public transport|
