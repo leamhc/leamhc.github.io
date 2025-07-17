@@ -16,7 +16,7 @@ featured_image: /images/portrait.png
 
 ## Work Experience
 
-⋰ Reporter at [Infopro Digital](https://www.risk.net/) {London}
+⋰ Data Journalist at [Infopro Digital](https://www.risk.net/) {London}
 
 ⋰ Reporter at [Bond Radar](https://www.bondradar.com/) {London}
 
