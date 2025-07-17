@@ -16,6 +16,8 @@ featured_image: /images/portrait.png
 
 ## Work Experience
 
+⋰ Reporter at [Infopro Digital](https://www.risk.net/) {London}
+
 ⋰ Reporter at [Bond Radar](https://www.bondradar.com/) {London}
 
 ⋰ Intern at [Bloomberg News](https://www.bloomberg.com) {Hong Kong}
