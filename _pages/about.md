@@ -16,7 +16,7 @@ featured_image: /images/portrait.png
 
 ## Work Experience
 
-⋰ Data Journalist at [Infopro Digital](https://www.risk.net/) {London}
+⋰ Data Journalist at [Risk.net - Infopro Digital](https://www.risk.net/author/lea-mok) {London}
 
 ⋰ Reporter at [Bond Radar](https://www.bondradar.com/) {London}
 

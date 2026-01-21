@@ -7,8 +7,8 @@ featured_image: '/images/project/gif/CREridgeline.gif'
 ---
 
 ## Commercial real estate to assets ratio Ridgeline plot
-- Big banks are lowering their CRE to assets ratio since 2010
-- Small banks, on the other hand, are boosting their CRE-to-assets ratio drastically since 2022
+- The top 10% banks are lowering their CRE to assets ratio since 2010
+- Small banks, however, are boosting their CRE-to-assets ratio since 2022
 
 <div class="l-page">
 <iframe width="100%" height="484" frameborder="0"
@@ -23,7 +23,9 @@ A higher CRE-to-assets ratio doesn’t spell trouble on its own, but it does mea
 
 ## The Graph
 
-A lot of people are sick of line charts, but sometimes we can't really get rid of them entirely, so the alternative is to jazz them up a bit. Ridgeline plots are my favorite way to do that as they value both aesthetics and information density, and easier to show trends over time.
+A lot of people are sick of line charts, but sometimes we can't really get rid of them entirely, so the alternative is to jazz them up a bit. Ridgeline plots are my favorite way to do that as they value both aesthetics and information density, and easier to show trends over time. 
+
+I put the banks into **bins based on their size** for each quarter from 2009 to 2025, and then plotted the distribution of those ratios for each bin over time. The ridgeline plot allows us to see how the distribution of CRE-to-assets ratios has changed over time for different groups of banks.
 
 ░ *The full story is available to subscribers of [Risk.Net](https://www.risk.net/), a London-based financial news outlet* 
 
