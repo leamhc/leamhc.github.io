@@ -20,6 +20,25 @@
 	width: 50%;
 }
 
+.portfolio--dataviz {
+	overflow-x: hidden;
+}
+
+.portfolio--dataviz .portfolio-wrap {
+	max-width: 1320px;
+	margin: 0 auto;
+}
+
+.portfolio--dataviz .portfolio-item {
+	@include mq(tabletl) {
+		width: 33.3333%;
+	}
+
+	@include mq(laptop) {
+		width: 31.5%;
+	}
+}
+
 .portfolio-item__link {
 	position: relative;
 	display: block;
@@ -31,6 +50,14 @@
 			.portfolio-item__content {
 				opacity: 1;
 				visibility: visible;
+			}
+
+			.portfolio-item__title {
+				@include transform(scale(1.1));
+			}
+
+			.portfolio-item__subtitle {
+				@include transform(scale(1.1));
 			}
 		}
 	}
@@ -61,32 +88,35 @@
 }
 
 .portfolio-item__title {
+	font-family: "Comfortaa", sans-serif;
 	color: $overlay-text-color;
-	font-size: $grid-item-title-small;
+	font-size: $grid-item-title-small*0.5;
 	font-weight: $grid-item-title-weight;
 	letter-spacing: $grid-item-title-spacing;
+	@include transition(transform 0.2s ease-in-out);
 
 	@include mq(tabletp) {
-		font-size: $grid-item-title-medium;
+		font-size: $grid-item-title-medium*0.5;
 	}
 
 	@include mq(laptop) {
-		font-size: $grid-item-title-large;
+		font-size: $grid-item-title-large*0.5;
 	}
 }
 
 .portfolio-item__subtitle {
 	margin-top: 5px;
 	color: rgba($overlay-text-color, 0.7);
-	font-size: $grid-item-subtitle-small;
+	font-size: $grid-item-subtitle-small*0.5;
 	font-weight: $grid-item-subtitle-weight;
 	letter-spacing: $grid-item-subtitle-spacing;
+	@include transition(transform 0.2s ease-in-out);
 
 	@include mq(tabletp) {
-		font-size: $grid-item-subtitle-medium;
+		font-size: $grid-item-subtitle-medium*0.5;
 	}
 
 	@include mq(laptop) {
-		font-size: $grid-item-subtitle-large;
+		font-size: $grid-item-subtitle-large*0.5;
 	}
 }

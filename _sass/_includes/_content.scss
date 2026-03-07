@@ -6,19 +6,19 @@
 
 .intro {
 	margin-top: 0;
-	padding: 20px 0 0;
-	background: $background-alt-color;
+	padding: 42px 0 0;
+	background: $background-color;
 
 	@include mq(tabletp) {
-		padding: 35px 0 0;
+		padding: 73.5px 0 0;
 	}
 
 	@include mq(tabletl) {
-		padding: 35px $grid-spacing 0;
+		padding: 73.5px $grid-spacing 0;
 	}
 
 	@include mq(laptop) {
-		padding: 53px $grid-spacing 0;
+		padding: 111.3px $grid-spacing 0;
 	}
 
 	.wrap {
@@ -33,6 +33,10 @@
 	}
 	
 	h1 {
+		font-family: "Times New Roman", Times, serif;
+		font-weight: 700;
+		font-size: 42px;
+		line-height: 1;
 		
 		@include mq(tabletp) {
 			white-space: pre-line;
@@ -44,6 +48,26 @@
 	}
 }
 
+.article-headline .ink {
+	display: inline;
+	padding: 0 0.24em;
+	background-image: linear-gradient(#fcccc0, #fcccc0);
+	background-repeat: no-repeat;
+	background-position: 0 56%;
+	background-size: 0 0.62em;
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+	@include animation('markerLoop 4s cubic-bezier(.2,.8,.2,1) 0.5s infinite');
+}
+
+@include keyframes(markerLoop) {
+	0%   { background-size: 0 0.62em; }
+	20%  { background-size: 112% 0.62em; }
+	30%  { background-size: 108% 0.62em; }
+	94%  { background-size: 108% 0.62em; }
+	100% { background-size: 0 0.62em; }
+}
+
 .content-wrap {
 	
 }
@@ -51,8 +75,13 @@
 .single {
 	margin-top: 0;
 	padding: 20px 0;
-	background: $background-alt-color;
+	background: $background-color;
 	min-height: 100vh;
+
+	h2, h3, h4, h5, h6 {
+		font-family: "Times New Roman", Times, serif;
+		font-weight: 600;
+	}
 
 	@include mq(tabletp) {
 		padding: 40px 0;
@@ -295,6 +324,11 @@
 			}
 		}
 	}
+}
+
+body[data-page-url*="ukstudentloans"] .intro,
+body[data-page-url*="ukstudentloans"] .single {
+	background: #ecebdf;
 }
 
 .image-wrap,

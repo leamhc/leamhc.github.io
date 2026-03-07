@@ -68,6 +68,11 @@
 
 <body class="loading{% if site.data.settings.advanced_settings.ajax_loading == true %} ajax-loading{% endif %}" data-site-url="{{ site.url }}" data-page-url="{{ page.url | replace: 'index.html', '' }}">
 
+	<div class="site-loading-overlay" aria-hidden="true"></div>
+	<div class="rail-square rail-square--blue" aria-hidden="true"></div>
+	<div class="rail-square rail-square--pink" aria-hidden="true"></div>
+	<div class="pacman-bg" aria-hidden="true"></div>
+	<div class="pacman-hover-text" aria-hidden="true"></div>
 
 	{% include header.html %}
 
@@ -95,6 +100,226 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="{{ '/js/plugins-min.js' | relative_url }}"></script>
 	<script src="{{ '/js/index-min.js' | relative_url }}"></script>
+		<script>
+			(function () {
+				var TYPE_DELAY_MS = 160;
+			var LOOP_EVERY_MS = 5000;
+
+			function typeHeaderTitle() {
+				var titleEl = document.querySelector('.header__title');
+				if (!titleEl) return;
+
+				var fullText = titleEl.dataset.fullText || titleEl.textContent.trim();
+				if (!fullText) return;
+				titleEl.dataset.fullText = fullText;
+
+				titleEl.textContent = '';
+				titleEl.classList.add('header__title--typing');
+				titleEl.classList.remove('header__title--typed');
+
+				var i = 0;
+				function tick() {
+					if (i < fullText.length) {
+						titleEl.textContent += fullText.charAt(i);
+						i += 1;
+						window.setTimeout(tick, TYPE_DELAY_MS);
+						return;
+					}
+					titleEl.classList.add('header__title--typed');
+				}
+				tick();
+			}
+
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', function () {
+					typeHeaderTitle();
+					window.setInterval(typeHeaderTitle, LOOP_EVERY_MS);
+				});
+			} else {
+				typeHeaderTitle();
+				window.setInterval(typeHeaderTitle, LOOP_EVERY_MS);
+				}
+			})();
+
+			(function () {
+				var pacmanEl = document.querySelector('.pacman-bg');
+				var railEl = document.querySelector('.header');
+				if (!pacmanEl || !railEl) return;
+
+				var x = 0;
+				var y = 0;
+				var vx = 98;
+				var vy = 61;
+				var lastTs = null;
+				var started = false;
+
+				function isDesktopRail() {
+					return window.matchMedia('(min-width: 1024px)').matches;
+				}
+
+				function step(ts) {
+					if (!isDesktopRail()) {
+						window.requestAnimationFrame(step);
+						return;
+					}
+
+					var railRect = railEl.getBoundingClientRect();
+					var size = pacmanEl.offsetWidth || 49;
+					var minX = railRect.left + 4;
+					var maxX = railRect.right - size - 4;
+					var minY = railRect.top + Math.max(railRect.height * 0.30, 0);
+					var maxY = railRect.bottom - size - 6;
+
+					if (!started || x < minX || x > maxX || y < minY || y > maxY) {
+						x = Math.min(maxX, Math.max(minX, railRect.left + railRect.width * 0.32));
+						y = Math.min(maxY, Math.max(minY, railRect.top + railRect.height * 0.56));
+						started = true;
+					}
+
+					if (lastTs === null) lastTs = ts;
+					var dt = Math.min((ts - lastTs) / 1000, 0.05);
+					lastTs = ts;
+
+					x += vx * dt;
+					y += vy * dt;
+
+					if (x <= minX) {
+						x = minX;
+						vx = Math.abs(vx);
+					} else if (x >= maxX) {
+						x = maxX;
+						vx = -Math.abs(vx);
+					}
+
+					if (y <= minY) {
+						y = minY;
+						vy = Math.abs(vy);
+					} else if (y >= maxY) {
+						y = maxY;
+						vy = -Math.abs(vy);
+					}
+
+					var facing = vx >= 0 ? 1 : -1;
+					pacmanEl.style.transform = 'translate(' + x + 'px,' + y + 'px) scaleX(' + facing + ')';
+
+					window.requestAnimationFrame(step);
+				}
+
+				window.addEventListener('resize', function () {
+					lastTs = null;
+					started = false;
+				});
+
+				window.requestAnimationFrame(step);
+			})();
+
+			(function () {
+				var pacmanEl = document.querySelector('.pacman-bg');
+				var textEl = document.querySelector('.pacman-hover-text');
+				if (!pacmanEl || !textEl) return;
+
+				var messages = [
+					"Hey stranger, welcome to my website",
+					"Wanna see some cool data?",
+					"Teeeheeee",
+					"AI gets so good these days, I'm scared",
+					"Gosh I've been working for 5 years now",
+					"Ngl I've done so many things",
+					"Videos, articles, data, photos, design...",
+					"Time flies.",
+					"Why are you following me instead of checking out my portfolio?",
+					"You're going to waste a lot of time here 'cause I've put in a lot of text bubbles for pac man",
+					"Like I'm not even bluffing",
+					"Awww I want a holiday",
+					"Do you like Parkrun?",
+					"It's basically a cult but I love it",
+					"Wow are you still here?",
+					"How was your day?",
+					"I hope it has been nice",
+					"You must be an interesting person since you're still playing this",
+					"But honestly take a look at the projects too",
+					"I know they might not be award-winning journalism",
+					"But I had fun making them",
+					"Especially the videos",
+					"Check out the one about Hong Kong banned films",
+					"I quite enjoy making that 'cause I like films",
+					"The one with the ex-observatory chief went viral in Hong Kong",
+					"Which was surprising 'cause HKers don't read Englsih local news",
+					"For data stories, I quite like the student loan one and the London postcode graph",
+					"Aiyaaa",
+					"Okay I need to get back to work",
+					"I won't keep you any longer",
+					"You won",
+					"This is the end",
+					"Like really",
+					"Or...",
+					"Is it?",
+					"...."
+				];
+
+				var MIN_VISIBLE_MS = 2000;
+				var messageIndex = 0;
+				var currentMessageIndex = 0;
+				var messageLockedUntil = 0;
+				var hideTimer = null;
+				var rafId = null;
+				var hovering = false;
+				var visibleUntil = 0;
+				var isVisible = false;
+
+				function setMessage(index) {
+					textEl.textContent = messages[index];
+				}
+
+				function updatePosition() {
+					if (!isVisible) return;
+					var rect = pacmanEl.getBoundingClientRect();
+					textEl.style.left = (rect.right + 10) + 'px';
+					textEl.style.top = (rect.top + rect.height / 2) + 'px';
+					rafId = window.requestAnimationFrame(updatePosition);
+				}
+
+				function hideIfAllowed() {
+					if (hovering || Date.now() < visibleUntil) return;
+					isVisible = false;
+					textEl.classList.remove('is-visible');
+					if (rafId) {
+						window.cancelAnimationFrame(rafId);
+						rafId = null;
+					}
+				}
+
+				function startHoverText() {
+					hovering = true;
+					var now = Date.now();
+					if (hideTimer) {
+						window.clearTimeout(hideTimer);
+						hideTimer = null;
+					}
+
+					if (now >= messageLockedUntil) {
+						currentMessageIndex = messageIndex;
+						messageIndex = (messageIndex + 1) % messages.length;
+						messageLockedUntil = now + MIN_VISIBLE_MS;
+					}
+
+					setMessage(currentMessageIndex);
+					visibleUntil = now + MIN_VISIBLE_MS;
+					isVisible = true;
+					textEl.classList.add('is-visible');
+					if (!rafId) updatePosition();
+				}
+
+				function stopHoverText() {
+					hovering = false;
+					var delay = Math.max(0, visibleUntil - Date.now());
+					hideTimer = window.setTimeout(hideIfAllowed, delay);
+				}
+
+				pacmanEl.addEventListener('mouseenter', startHoverText);
+				pacmanEl.addEventListener('mouseleave', stopHoverText);
+			})();
+		</script>
 
 	{% if site.data.settings.advanced_settings.footer_js %}
 	<!-- Extra Footer JS Code -->
