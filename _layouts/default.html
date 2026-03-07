@@ -103,41 +103,58 @@
 		<script>
 			(function () {
 				var TYPE_DELAY_MS = 160;
-			var LOOP_EVERY_MS = 5000;
+				var LOOP_EVERY_MS = 5000;
+				var loopTimer = null;
+				var typingTimer = null;
+				var runId = 0;
 
-			function typeHeaderTitle() {
-				var titleEl = document.querySelector('.header__title');
-				if (!titleEl) return;
+				function typeHeaderTitle() {
+					var titleEl = document.querySelector('.header__title');
+					if (!titleEl) return;
 
 				var fullText = titleEl.dataset.fullText || titleEl.textContent.trim();
 				if (!fullText) return;
 				titleEl.dataset.fullText = fullText;
 
-				titleEl.textContent = '';
-				titleEl.classList.add('header__title--typing');
-				titleEl.classList.remove('header__title--typed');
-
-				var i = 0;
-				function tick() {
-					if (i < fullText.length) {
-						titleEl.textContent += fullText.charAt(i);
-						i += 1;
-						window.setTimeout(tick, TYPE_DELAY_MS);
-						return;
+					titleEl.textContent = '';
+					titleEl.classList.add('header__title--typing');
+					titleEl.classList.remove('header__title--typed');
+					runId += 1;
+					var thisRun = runId;
+					if (typingTimer) {
+						window.clearTimeout(typingTimer);
+						typingTimer = null;
 					}
-					titleEl.classList.add('header__title--typed');
-				}
-				tick();
-			}
 
-			if (document.readyState === 'loading') {
-				document.addEventListener('DOMContentLoaded', function () {
+					var i = 0;
+					function tick() {
+						if (thisRun !== runId) return;
+						if (i < fullText.length) {
+							titleEl.textContent += fullText.charAt(i);
+							i += 1;
+							typingTimer = window.setTimeout(tick, TYPE_DELAY_MS);
+							return;
+						}
+						titleEl.classList.add('header__title--typed');
+					}
+					tick();
+				}
+
+				function startTitleLoop() {
+					if (loopTimer) {
+						window.clearInterval(loopTimer);
+						loopTimer = null;
+					}
 					typeHeaderTitle();
-					window.setInterval(typeHeaderTitle, LOOP_EVERY_MS);
-				});
-			} else {
-				typeHeaderTitle();
-				window.setInterval(typeHeaderTitle, LOOP_EVERY_MS);
+					loopTimer = window.setInterval(typeHeaderTitle, LOOP_EVERY_MS);
+				}
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', function () {
+						startTitleLoop();
+					});
+				} else {
+					startTitleLoop();
 				}
 			})();
 

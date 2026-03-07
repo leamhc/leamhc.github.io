@@ -122,30 +122,24 @@
 
 		// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Show content
 
-		// Wait until first image has loaded
-		$('.page__content').find('img:first').imagesLoaded( function() {
-	
-			// Portfolio grid layout
-			$('.portfolio-wrap').imagesLoaded( function() {
-				$('.portfolio-wrap').masonry({
-					itemSelector: '.portfolio-item',
-					transitionDuration: 0
-				});
+		// Show content immediately; grid/image layout can settle asynchronously.
+		$('body').removeClass('loading');
+		$('body').removeClass('menu--open');
+
+		// Portfolio grid layout
+		$('.portfolio-wrap').imagesLoaded( function() {
+			$('.portfolio-wrap').masonry({
+				itemSelector: '.portfolio-item',
+				transitionDuration: 0
 			});
+		});
 
-			// Blog grid layout
-			$('.blog-wrap').imagesLoaded( function() {
-				$('.blog-wrap').masonry({
-					itemSelector: '.blog-post',
-					transitionDuration: 0
-				});
+		// Blog grid layout
+		$('.blog-wrap').imagesLoaded( function() {
+			$('.blog-wrap').masonry({
+				itemSelector: '.blog-post',
+				transitionDuration: 0
 			});
-
-			// Show the content
-			$('body').removeClass('loading');
-
-			// Hide the menu
-			$('body').removeClass('menu--open');
 		});
 
 

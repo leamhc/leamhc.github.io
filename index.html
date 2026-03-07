@@ -29,7 +29,7 @@ featured_image:
 						<source src="{{ project.featured_image | relative_url }}" type="video/{% if featured_media contains '.webm' %}webm{% else %}mp4{% endif %}">
 					</video>
 					{% else %}
-					<img src="{{ project.featured_image | relative_url }}" alt="{{ project.title }}">
+					<img src="{{ project.featured_image | relative_url }}" alt="{{ project.title }}" loading="lazy" decoding="async">
 					{% endif %}
 				</div>
 
