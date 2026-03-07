@@ -1,10 +1,10 @@
 ---
 title: q:
 subtitle:
-featured_image: /images/portrait.png
+featured_image: /images/me/me.jpg
 ---
 
-![](/images/portrait.png)
+![](/images/me/me.jpg)
 
 ## Hi, this is Lea Mok. I am...
 

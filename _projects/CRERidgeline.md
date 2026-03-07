@@ -1,7 +1,7 @@
 ---
 title: '⋱ Out of office, into the CRE Crisis'
 subtitle: '[Ridgeline]: R, D3.js'
-date: 2025-12-21 00:00:00
+date: 2024-12-21 00:00:00
 description: 
 featured_image: '/images/project/gif/CREridgeline.gif'
 ---

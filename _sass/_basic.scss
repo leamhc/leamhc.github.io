@@ -338,6 +338,13 @@ blockquote {
 	}
 }
 
+mark {
+	background: #fcccc0;
+	color: #111111;
+	padding: 0.06em 0.2em;
+	border-radius: 2px;
+}
+
 a {
 	text-decoration: none;
 	color: $text-dark-color;

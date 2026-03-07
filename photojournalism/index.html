@@ -1,0 +1,35 @@
+---
+layout: default
+title: Photojournalism
+description: Photo cards with hover captions
+featured_image:
+---
+
+<section class="portfolio portfolio--photojournalism">
+
+	<div class="content-wrap portfolio-wrap">
+
+		{% for photo in site.data.photojournalism.photos %}
+
+		<div class="portfolio-item portfolio-item--static">
+
+			<div class="portfolio-item__frame" role="img" aria-label="{{ photo.title }}">
+				<div class="portfolio-item__image">
+					<img src="{{ photo.image | relative_url }}" alt="{{ photo.title }}">
+				</div>
+
+				<div class="portfolio-item__content">
+					<div class="portfolio-item__info">
+						<h2 class="portfolio-item__title">{{ photo.title }}</h2>
+						<p class="portfolio-item__subtitle">{{ photo.subtitle }}</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		{% endfor %}
+
+	</div>
+
+</section>

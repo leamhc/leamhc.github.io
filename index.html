@@ -14,9 +14,23 @@ featured_image:
 		<div class="portfolio-item">
 
 			<a class="portfolio-item__link" href="{{ project.url | relative_url }}">
+				{% assign featured_media = project.featured_image | downcase %}
 
 				<div class="portfolio-item__image">
+					{% if featured_media contains '.mp4' or featured_media contains '.webm' %}
+					<video
+						autoplay
+						muted
+						loop
+						playsinline
+						preload="metadata"
+						{% if project.featured_poster %}poster="{{ project.featured_poster | relative_url }}"{% endif %}
+						aria-label="{{ project.title }}">
+						<source src="{{ project.featured_image | relative_url }}" type="video/{% if featured_media contains '.webm' %}webm{% else %}mp4{% endif %}">
+					</video>
+					{% else %}
 					<img src="{{ project.featured_image | relative_url }}" alt="{{ project.title }}">
+					{% endif %}
 				</div>
 
 				<div class="portfolio-item__content">

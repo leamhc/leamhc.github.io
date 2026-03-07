@@ -1,32 +1,28 @@
 ---
-title: '⋱ Out of office, into the CRE Crisis'
-subtitle: '[Ridgeline]: R, D3.js'
-date: 2025-12-21 00:00:00
+title: '⋱ UK Student Loans borrower stimulator'
+subtitle: '[Jittered plot]: D3.js'
+date: 2026-01-21 00:00:00
 description: 
-featured_image: '/images/project/gif/CREridgeline.gif'
+featured_image: '/images/project/mp4/UKstudentloan.mp4'
 ---
 
+Rachel Reeves’ Budget in November [revealed plans](https://www.theguardian.com/money/2026/feb/24/why-the-student-loans-row-is-escalating-and-what-it-means-for-graduates) to freeze the student loan repayment threshold at £29,385 until 2030. Recently, I’ve seen many fresh graduates appearing on television sharing horror stories about being missold student loans and saddled with debts that could grow to more than twice what they originally borrowed.
+
+I looked into it and found that the UK student loan system is fairly complex, with different interest rates depending on income and a 30-year write-off period. It made me wonder whether the system is really as flawed as some graduates claim — and, if so, whether the Conservatives’ proposal to <mark>cap interest at RPI</mark>, or the Liberal Democrats’ suggestion <mark>not to freeze the threshold</mark>, would actually make a difference.
+
+So I built a UK student loan scenario simulator in Observable. The idea is simple: imagine you’re the UK’s chancellor and can redesign the Plan 2 student loan system - what would you change?
+
 <div class="obs-wrap">
-<iframe width="100%" height="1210" frameborder="0"
-  src="https://observablehq.com/embed/5b39e4ebc5e2c1ee@300?cells=title%2Cviewof+controls%2Cchart&api_key=de7b90ab45ae545bbad61a4431282cd6963295f2"></iframe>
+<iframe width="100%" height="1073" frameborder="0"
+  src="https://observablehq.com/embed/5b39e4ebc5e2c1ee@311?cells=viewof+controls%2Cchart"></iframe>
 </div>
 
-test 
+## It's the repayment-salary ratio
 
-The commercial real estate (CRE)-to-assets ratio is a quick way to see how much of a bank’s balance sheet is tied up in property, and how risky that bet looks over time. 
+If you play around with the controls, you’ll quickly find that what creates the seemingly unfair situation - <mark>where lower-income graduates end up paying twice as much as higher-income ones</mark> - is neither the interest rate nor the repayment threshold, but the repayment percentage.
 
-After the financial crisis, mid-tier banks steadily shrank their CRE exposure as tougher rules and scar tissue from the crash pushed them to play it safe. Then cheap money arrived, lending picked up and the ratio quietly crept back up at some lenders. 
+Right now, anyone earning above the salary threshold has to allocate 9% of their income towards repaying their student loan. Under this design, people earning around <mark>£40k</mark> can end up paying significantly more than others — in some cases almost three times what they originally borrowed.
 
-A higher CRE-to-assets ratio doesn’t spell trouble on its own, but it does mean banks have more skin in the game if the property downturn deepens.
+If you dial the repayment rate down to <mark>1.5%–5%</mark>, the distribution looks much fairer. Government revenue would not necessarily fall — it could even increase.
 
-## The Graph
-
-A lot of people are sick of line charts, but sometimes we can't really get rid of them entirely, so the alternative is to jazz them up a bit. Ridgeline plots are my favorite way to do that as they value both aesthetics and information density, and easier to show trends over time. 
-
-I put the banks into **bins based on their size** for each quarter from 2009 to 2025, and then plotted the distribution of those ratios for each bin over time. The ridgeline plot allows us to see how the distribution of CRE-to-assets ratios has changed over time for different groups of banks.
-
-░ *The full story is available to subscribers of [Risk.Net](https://www.risk.net/), a London-based financial news outlet* 
-
-|**Data Source** |Risk.Net|
-|**Tools used** |Rstudio, Observable (D3.js)|
-
+I’m not sure why the system is designed this way, or whether I’m missing something. Presumably the Treasury has already run the numbers.

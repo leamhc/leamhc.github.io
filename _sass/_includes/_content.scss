@@ -76,6 +76,7 @@
 	margin-top: 0;
 	padding: 20px 0;
 	background: $background-color;
+	color: #000000;
 	min-height: 100vh;
 
 	h2, h3, h4, h5, h6 {
@@ -329,6 +330,20 @@
 body[data-page-url*="ukstudentloans"] .intro,
 body[data-page-url*="ukstudentloans"] .single {
 	background: #ecebdf;
+}
+
+body[data-page-url*="about"] .intro {
+	display: none;
+}
+
+body[data-page-url*="about"] .single img[src*="/images/me/me.jpg"] {
+	width: min(500px, 92vw) !important;
+	max-width: min(500px, 92vw) !important;
+	height: auto;
+	border-radius: 18px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .image-wrap,

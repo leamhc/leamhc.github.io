@@ -87,18 +87,18 @@
 
 .blog-post__subtitle {
 	margin-top: 5px;
-	color: rgba($overlay-text-color, 0.7);
-	font-size: $grid-item-subtitle-small*0.5;
+	color: rgba($overlay-text-color, 0.92);
+	font-size: $grid-item-subtitle-small*0.72;
 	font-weight: $grid-item-subtitle-weight;
 	letter-spacing: $grid-item-subtitle-spacing;
 	@include transition(transform 0.2s ease-in-out);
 
 	@include mq(tabletp) {
-		font-size: $grid-item-subtitle-medium*0.5;
+		font-size: $grid-item-subtitle-medium*0.72;
 	}
 
 	@include mq(laptop) {
-		font-size: $grid-item-subtitle-large*0.5;
+		font-size: $grid-item-subtitle-large*0.72;
 	}
 }
 
