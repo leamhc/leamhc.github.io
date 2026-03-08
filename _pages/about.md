@@ -1,7 +1,7 @@
 ---
 title: q:
 subtitle:
-featured_image: /images/me/me.jpg
+featured_image: /images/me/me.jpeg
 ---
 
 ![](/images/me/me.jpg)
