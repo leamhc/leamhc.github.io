@@ -1,5 +1,5 @@
 ---
-title: '⋱ UK Student Loans borrower stimulator'
+title: '⋱ UK Student Loan borrowers stimulator'
 subtitle: '[Jittered plot]: D3.js'
 date: 2026-01-21 00:00:00
 description: 
@@ -12,17 +12,21 @@ I looked into it and found that the UK student loan system is fairly complex, wi
 
 So I built a UK student loan scenario simulator in Observable. The idea is simple: imagine you’re the UK’s chancellor and can redesign the Plan 2 student loan system - what would you change?
 
+## Who are overpaying the most? The average earners
+
 <div class="obs-wrap">
-<iframe width="100%" height="1073" frameborder="0"
-  src="https://observablehq.com/embed/5b39e4ebc5e2c1ee@311?cells=viewof+controls%2Cchart"></iframe>
+<iframe width="100%" height="1250" frameborder="0"
+  src="https://observablehq.com/embed/5b39e4ebc5e2c1ee@393?cells=chart%2Cviewof+controls"></iframe>
 </div>
+
+Under the current system, fresh graduates with starting salaries of <mark>£40k to £50k</mark> would end up overpaying the most for their degrees (as shown using the default settings of the controls).
+
+Bear in mind that the median gross annual earnings for full-time employees in the UK were <mark>£37,430</mark> in 2024, while the figure for graduates aged 16–64 was <mark>£42,000</mark>. This suggests that many average earners could end up being the hardest hit.
 
 ## It's the repayment-salary ratio
 
 If you play around with the controls, you’ll quickly find that what creates the seemingly unfair situation - <mark>where lower-income graduates end up paying twice as much as higher-income ones</mark> - is neither the interest rate nor the repayment threshold, but the repayment percentage.
 
-Right now, anyone earning above the salary threshold has to allocate 9% of their income towards repaying their student loan. Under this design, people earning around <mark>£40k</mark> can end up paying significantly more than others — in some cases almost three times what they originally borrowed.
+Right now, anyone earning above the salary threshold has to allocate 9% of their income towards repaying their student loan. Under this design, people earning around <mark>£40k</mark> can end up paying significantly more than others - in some cases almost three times what they originally borrowed.
 
-If you dial the repayment rate down to <mark>1.5%–5%</mark>, the distribution looks much fairer. Government revenue would not necessarily fall — it could even increase.
-
-I’m not sure why the system is designed this way, or whether I’m missing something. Presumably the Treasury has already run the numbers.
+If you dial the repayment rate down to <mark>1.5%–5%</mark>, the distribution looks much fairer. Government revenue would not necessarily fall - it could even increase.
