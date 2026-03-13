@@ -69,9 +69,8 @@
 <body class="loading{% if site.data.settings.advanced_settings.ajax_loading == true %} ajax-loading{% endif %}" data-site-url="{{ site.url }}" data-page-url="{{ page.url | replace: 'index.html', '' }}">
 
 	<div class="site-loading-overlay" aria-hidden="true"></div>
-	<div class="rail-square rail-square--blue" aria-hidden="true"></div>
-	<div class="rail-square rail-square--pink" aria-hidden="true"></div>
 	<div class="pacman-bg" aria-hidden="true"></div>
+	<div class="pacman-callout" aria-hidden="true">&lt; Talk to me</div>
 	<div class="pacman-hover-text" aria-hidden="true"></div>
 
 	{% include header.html %}
@@ -160,6 +159,7 @@
 
 			(function () {
 				var pacmanEl = document.querySelector('.pacman-bg');
+				var calloutEl = document.querySelector('.pacman-callout');
 				var railEl = document.querySelector('.header');
 				if (!pacmanEl || !railEl) return;
 
@@ -176,6 +176,7 @@
 
 				function step(ts) {
 					if (!isDesktopRail()) {
+						if (calloutEl) calloutEl.style.opacity = '0';
 						window.requestAnimationFrame(step);
 						return;
 					}
@@ -218,6 +219,10 @@
 
 					var facing = vx >= 0 ? 1 : -1;
 					pacmanEl.style.transform = 'translate(' + x + 'px,' + y + 'px) scaleX(' + facing + ')';
+					if (calloutEl) {
+						calloutEl.style.transform = 'translate(' + (x + size + 10) + 'px,' + (y + size * 0.5) + 'px)';
+						calloutEl.style.opacity = '1';
+					}
 
 					window.requestAnimationFrame(step);
 				}
@@ -244,20 +249,10 @@
 					"You're going to waste a lot of time here",
 					"'cause I've put in a lot of text bubbles for pac man",
 					"Like I'm not even bluffing",
-					"Gosh I've been working for 5 years now",
-					"Ngl I've done so many things",
-					"Videos, articles, data, photos, design...",
-					"Time flies.",
-					"Awww I want a holiday",
-					"Do you like Parkrun?",
-					"It's basically a cult but I love it",
 					"Wow are you still here?",
-					"How was your day?",
-					"I hope it has been nice",
 					"You must be an interesting person since you're still playing this",
 					"But honestly take a look at the projects too",
-					"I know they might not be award-winning journalism",
-					"But I had fun making them",
+					"I had fun making them",
 					"Especially the videos",
 					"Check out the one about Hong Kong banned films",
 					"I quite enjoy making that 'cause I like films",

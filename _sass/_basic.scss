@@ -54,42 +54,6 @@ body {
 	will-change: transform;
 }
 
-.rail-square {
-	position: fixed;
-	width: 12px;
-	height: 12px;
-	pointer-events: none;
-	opacity: 0.45;
-	z-index: 1;
-	display: none;
-}
-
-.rail-square--blue {
-	background: #9abddb;
-	@include animation('rail-square-blue 14s linear infinite');
-}
-
-.rail-square--pink {
-	background: #f26d73;
-	@include animation('rail-square-pink 16s linear infinite');
-}
-
-@include keyframes(rail-square-blue) {
-	0% { @include transform(translate(3vw, 34vh)); }
-	25% { @include transform(translate(14vw, 46vh)); }
-	50% { @include transform(translate(7vw, 70vh)); }
-	75% { @include transform(translate(15vw, 84vh)); }
-	100% { @include transform(translate(3vw, 34vh)); }
-}
-
-@include keyframes(rail-square-pink) {
-	0% { @include transform(translate(16vw, 38vh)); }
-	25% { @include transform(translate(5vw, 56vh)); }
-	50% { @include transform(translate(13vw, 78vh)); }
-	75% { @include transform(translate(4vw, 88vh)); }
-	100% { @include transform(translate(16vw, 38vh)); }
-}
-
 .pacman-bg:before {
 	content: '';
 	position: absolute;
@@ -143,13 +107,32 @@ body {
 	opacity: 1;
 }
 
+.pacman-callout {
+	position: fixed;
+	color: #2a2f36;
+	font-family: "Share Tech Mono", monospace;
+	font-size: 12px;
+	font-weight: 400;
+	white-space: nowrap;
+	pointer-events: none;
+	opacity: 0;
+	z-index: 2;
+	@include transform(translate(0,0));
+	@include animation('pacman-callout-flicker 1.1s steps(2, end) infinite');
+}
+
+@include keyframes(pacman-callout-flicker) {
+	0%, 100% { opacity: 0.95; }
+	50% { opacity: 0.28; }
+}
+
 @include keyframes(pacman-mouth) {
 	0%, 100% { @include transform(translateY(-50%) scaleY(1)); }
 	50% { @include transform(translateY(-50%) scaleY(0.35)); }
 }
 
 @include mq(tabletl) {
-	.rail-square {
+	.pacman-callout {
 		display: block;
 	}
 
@@ -159,8 +142,9 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.rail-square {
+	.pacman-callout {
 		animation: none;
+		opacity: 0.95;
 	}
 
 	.pacman-bg {

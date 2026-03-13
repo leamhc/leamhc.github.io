@@ -20,8 +20,8 @@ I made a bubble chart for that purpose. As you hover over the bubbles, you'll se
 ---
 
 <div class="l-page">
-<iframe width="100%" height="984" frameborder="0"
-  src="https://observablehq.com/embed/cef6ed901686a32d@210?cells=viewof+selectedLevels%2Cviewof+selectedTubes%2Cchart"></iframe>
+<iframe width="100%" height="1184" frameborder="0"
+  src="https://observablehq.com/embed/cef6ed901686a32d@272?cells=viewof+selectedLevels%2Cviewof+selectedTubes%2Cviewof+postcodeSearch%2Cchart"></iframe>
 </div>
 
 Yes, frustrated by my unrewarding flat search, I spent my Christmas holiday (yes, really) extracting data from various APIs and websites - crime rates, tube stations, commute times, median rent - and turning it into an interactive Plotly bubble graph. 
