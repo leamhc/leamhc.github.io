@@ -3,7 +3,7 @@ title: '⋱ A Tool For Your London Flat Search'
 subtitle: '{Interactive Bubble Chart}: Rstudio, D3.js, API'
 date: 2025-01-01 00:00:00
 description: 
-featured_image: '/images/project/gif/londonflatsearch.gif'
+featured_image: '/images/project/mp4/londonflatsearch.mp4'
 ---
 ## The Story
 
@@ -20,7 +20,7 @@ I made a bubble chart for that purpose. As you hover over the bubbles, you'll se
 ---
 
 <div class="l-page">
-<iframe width="100%" height="1184" frameborder="0"
+<iframe width="100%" height="1200" frameborder="0"
   src="https://observablehq.com/embed/cef6ed901686a32d@272?cells=viewof+selectedLevels%2Cviewof+selectedTubes%2Cviewof+postcodeSearch%2Cchart"></iframe>
 </div>
 

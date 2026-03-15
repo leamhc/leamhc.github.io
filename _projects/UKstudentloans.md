@@ -15,7 +15,7 @@ featured_image: '/images/project/mp4/UKstudentloans.mp4'
 ## The Graph
 
 <div class="obs-wrap">
-<iframe width="100%" height="1250" frameborder="0"
+<iframe width="100%" height="1350" frameborder="0"
   src="https://observablehq.com/embed/5b39e4ebc5e2c1ee@403?cells=title%2Cchart%2Cviewof+controls"></iframe>
 </div>
 
