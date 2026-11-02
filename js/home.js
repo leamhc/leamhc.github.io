@@ -40,7 +40,7 @@
     ? `<video ${still.matches ? "" : "autoplay"} muted loop playsinline preload="metadata" aria-label="${alt}"><source src="${img}" type="video/mp4"></video>`
     : `<img src="${img}" alt="${alt}" loading="lazy" decoding="async">`;
   const card = (c, i, from) => `
-    <li class="item reveal${i < from ? " seen" : ""}${c.photo ? " photo" : ""}" style="--d:${(i % 3) * 80}ms"><a href="${c.url}">
+    <li class="item reveal${i < from ? " seen" : ""}${c.photo ? " photo" : ""}" style="--d:${(i % 3) * 80}ms"><a href="${c.url}"${c.photo ? ` data-photo="${i}"` : ""}>
       <div class="pic">${media(c.img, c.t)}</div>
       <h3><span>${c.t}</span></h3>
       <p>${c.sub}</p>
@@ -50,7 +50,7 @@
     charts: () => PROJECTS
       .filter((p) => (pick.topic === "all" || p.topic === pick.topic) && (pick.tool === "all" || p.tools.includes(pick.tool)))
       .map((p) => ({ ...p, sub: `${p.kind}, made with ${p.tools.join(" and ")}` })),
-    photos: () => PHOTOS.map((p) => ({ ...p, photo: true })),
+    photos: () => PHOTOS.map((p) => ({ ...p, url: p.img, photo: true })),
   };
   // `from` is the first card that's new on screen, so only new ones ease in.
   function draw(key = "charts", from = 0) {
@@ -75,6 +75,50 @@
     if (!open[key]) document.getElementById(key).scrollIntoView({ behavior: still.matches ? "auto" : "smooth" });
   }));
   draw("work"); draw("charts"); draw("photos");
+
+  // Photos open large over the page, with their full caption; arrows step through them.
+  (() => {
+    const box = document.createElement("div");
+    box.className = "lightbox"; box.hidden = true;
+    box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true"); box.setAttribute("aria-label", "Photo");
+    box.innerHTML = `
+      <button class="circle lb-close" type="button" aria-label="Close">✕</button>
+      <button class="circle lb-step lb-prev" type="button" aria-label="Previous photo">←</button>
+      <figure><img alt=""><figcaption><b></b> <span></span></figcaption></figure>
+      <button class="circle lb-step lb-next" type="button" aria-label="Next photo">→</button>`;
+    document.body.append(box);
+    const img = box.querySelector("img"), date = box.querySelector("b"), line = box.querySelector("figcaption span");
+    let at = 0, back = null;
+    const show = (i) => {
+      at = (i + PHOTOS.length) % PHOTOS.length;
+      const p = PHOTOS[at];
+      img.src = p.img; img.alt = p.sub; date.textContent = p.t; line.textContent = p.sub;
+      box.querySelector("figure").classList.remove("swap"); void box.offsetWidth; box.querySelector("figure").classList.add("swap");
+    };
+    const open = (i, from) => {
+      back = from; show(i);
+      box.hidden = false; box.classList.remove("leaving");
+      document.documentElement.style.overflow = "hidden";
+      box.querySelector(".lb-close").focus();
+    };
+    const shut = () => {
+      const done = () => { box.hidden = true; box.classList.remove("leaving"); document.documentElement.style.overflow = ""; back?.focus(); };
+      if (still.matches) return done();
+      box.classList.add("leaving"); setTimeout(done, 200);
+    };
+    $('[data-grid="photos"]').addEventListener("click", (e) => {
+      const a = e.target.closest("[data-photo]"); if (!a) return;
+      e.preventDefault(); open(+a.dataset.photo, a);
+    });
+    box.querySelector(".lb-close").addEventListener("click", shut);
+    box.querySelector(".lb-prev").addEventListener("click", () => show(at - 1));
+    box.querySelector(".lb-next").addEventListener("click", () => show(at + 1));
+    box.addEventListener("click", (e) => { if (e.target === box) shut(); });
+    addEventListener("keydown", (e) => {
+      if (box.hidden) return;
+      if (e.key === "Escape") shut(); else if (e.key === "ArrowLeft") show(at - 1); else if (e.key === "ArrowRight") show(at + 1);
+    });
+  })();
 
   // Pac-Man bounces around the space under the words.
   (() => {

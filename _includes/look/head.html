@@ -3,19 +3,20 @@
   and the stories. These pages stand on their own: no theme header, footer or ajax loading.
   The other pages still use default.html.
 {% endcomment %}
+{% assign title = page.title | remove: '⋱' | strip %}
 <!doctype html>
 <html lang="en-GB">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{% if page.layout == 'home' %}{{ site.data.settings.basic_settings.site_title }} – {{ page.title }}{% else %}{{ page.title }} – {{ site.data.settings.basic_settings.site_title }}{% endif %}</title>
+	<title>{% if page.layout == 'home' %}{{ site.data.settings.basic_settings.site_title }} – {{ title }}{% else %}{{ title }} – {{ site.data.settings.basic_settings.site_title }}{% endif %}</title>
 	<meta name="description" content="{{ page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | xml_escape }}">
 	<link rel="shortcut icon" href="{{ site.data.settings.basic_settings.favicon_image | relative_url }}">
 
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="{{ site.data.settings.basic_settings.site_title }} – {{ page.title }}">
+	<meta name="twitter:title" content="{{ site.data.settings.basic_settings.site_title }} – {{ title }}">
 	<meta name="twitter:description" content="{{ page.description | strip_html | xml_escape }}">
-	<meta property="og:title" content="{{ site.data.settings.basic_settings.site_title }} – {{ page.title }}">
+	<meta property="og:title" content="{{ site.data.settings.basic_settings.site_title }} – {{ title }}">
 	<meta property="og:description" content="{{ page.description | strip_html | xml_escape }}">
 	{% if page.featured_image %}<meta name="twitter:image:src" content="{{ page.featured_image | absolute_url }}">
 	<meta property="og:image" content="{{ page.featured_image | absolute_url }}">{% endif %}

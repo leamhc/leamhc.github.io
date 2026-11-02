@@ -1,0 +1,40 @@
+---
+layout: look
+---
+{% comment %}
+  A chart page in the home page's look: the story layout with a wider column, so the
+  interactive graphs (Observable, Plotly) and image galleries have room. The kicker comes
+  from the project's chart_type and tools, the same words as on the home page.
+{% endcomment %}
+{% assign headline = page.title | remove: '⋱' | strip %}
+
+<article class="story story--chart">
+  <header class="story-head">
+    <a class="u back" href="{{ '/' | relative_url }}#charts">← All charts</a>
+    {% if page.chart_type %}<p class="kicker">{{ page.chart_type }}{% if page.tools %}, made with {{ page.tools | join: ' and ' }}{% endif %}</p>{% endif %}
+    <h1 class="story-title">{{ headline }}<span class="dot">.</span></h1>
+    <p class="story-meta">{{ page.date | date: "%B %Y" }}</p>
+  </header>
+
+  <div class="story-body">
+    {{ content }}
+  </div>
+</article>
+
+{% assign projects = site.projects | sort: 'date' | reverse %}
+<section class="sec story-more">
+  <div class="head"><h2 class="title">more charts<span class="dot">.</span></h2></div>
+  <ul class="grid">
+    {% assign shown = 0 %}
+    {% for p in projects %}
+      {% if p.url == page.url or shown == 3 %}{% continue %}{% endif %}
+      {% assign shown = shown | plus: 1 %}
+      {% assign media = p.featured_image | downcase %}
+      <li class="item"><a href="{{ p.url | relative_url }}">
+        <div class="pic">{% if media contains '.mp4' %}<video autoplay muted loop playsinline preload="metadata" aria-label="{{ p.title | remove: '⋱' | strip | escape }}"><source src="{{ p.featured_image | relative_url }}" type="video/mp4"></video>{% else %}<img src="{{ p.featured_image | relative_url }}" alt="{{ p.title | remove: '⋱' | strip | escape }}" loading="lazy" decoding="async">{% endif %}</div>
+        <h3><span>{{ p.title | remove: '⋱' | strip }}</span></h3>
+        <p>{{ p.chart_type }}{% if p.tools %}, made with {{ p.tools | join: ' and ' }}{% endif %}</p>
+      </a></li>
+    {% endfor %}
+  </ul>
+</section>
