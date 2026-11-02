@@ -1,0 +1,16 @@
+{% comment %} Section links point at the home page; on the home page itself they stay put. {% endcomment %}
+{% if page.layout == 'home' %}{% assign home = '' %}{% else %}{% assign home = '/' | relative_url %}{% endif %}
+<div class="menu" data-menu aria-hidden="true">
+  <div class="bar">
+    <span class="home">Lea Mok<span class="dot">.</span></span>
+    <button class="circle" type="button" aria-label="Close menu" data-menu-close>✕</button>
+  </div>
+  <nav>
+    <a href="{{ home }}#showreel" style="--i:0">Showreel</a>
+    <a href="{{ home }}#work" style="--i:1">Selected work</a>
+    <a href="{{ home }}#charts" style="--i:2">Data visualisation</a>
+    <a href="{{ home }}#photos" style="--i:3">Photojournalism</a>
+    <a href="{{ home }}#about" style="--i:4">About me</a>
+    <a href="{{ '/contact' | relative_url }}" style="--i:5">Contact</a>
+  </nav>
+</div>

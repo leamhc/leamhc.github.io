@@ -1,6 +1,10 @@
 ---
 title: '⋱ Out of office, into the CRE Crisis'
 subtitle: '[Ridgeline]: R, D3.js'
+# For the home page's chart filter
+chart_type: 'Ridgeline'
+tools: ['R', 'D3.js']
+topic: 'money'
 date: 2024-12-21 00:00:00
 description: 
 featured_image: '/images/project/gif/CREridgeline.gif'

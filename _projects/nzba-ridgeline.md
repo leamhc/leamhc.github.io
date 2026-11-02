@@ -1,6 +1,10 @@
 ---
 title: '⋱ ESG Is No Longer Cool For Big Banks'
 subtitle: '{Ridgeline}: R, Adobe Illustrator, API'
+# For the home page's chart filter
+chart_type: 'Ridgeline'
+tools: ['R', 'Illustrator']
+topic: 'money'
 date: 2025-2-25 00:00:00
 description: 
 featured_image: '/images/project/png/nzba/NZBAridgeline.png'

@@ -1,6 +1,10 @@
 ---
 title: '⋱ Everything Everywhere Remastered'
 subtitle: '{Interactive Heatmap}: Rstudio, API'
+# For the home page's chart filter
+chart_type: 'Dumbbell'
+tools: ['R']
+topic: 'music'
 date: 2024-06-30 00:00:00
 description: 
 featured_image: '/images/project/png/spotify/spotifydumpbell.png'

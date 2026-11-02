@@ -1,6 +1,10 @@
 ---
 title: "⋱ Scale HK Lawmakers' Political Position"
 subtitle: '{Academic Graphs}: Rstudio, API'
+# For the home page's chart filter
+chart_type: 'Academic graphs'
+tools: ['R']
+topic: 'politics'
 date: 2024-09-30 00:00:00
 description: 
 featured_image: '/images/project/png/hklegco/hkhansard.png'

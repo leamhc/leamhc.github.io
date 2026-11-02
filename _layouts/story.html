@@ -1,0 +1,44 @@
+---
+layout: look
+---
+{% comment %}
+  A story in the home page's look. A title like "HKFP video: Hong Kong Banned Films" splits into
+  a small kicker ("HKFP video") and the headline; titles without a colon are all headline.
+{% endcomment %}
+{% assign parts = page.title | split: ': ' %}
+{% if parts.size > 1 %}
+  {% assign kicker = parts.first %}
+  {% assign headline = page.title | remove_first: kicker | remove_first: ': ' %}
+{% else %}
+  {% assign kicker = nil %}
+  {% assign headline = page.title %}
+{% endif %}
+
+<article class="story">
+  <header class="story-head">
+    <a class="u back" href="{{ '/' | relative_url }}#work">← All selected work</a>
+    {% if kicker %}<p class="kicker">{{ kicker }}</p>{% endif %}
+    <h1 class="story-title">{{ headline }}<span class="dot">.</span></h1>
+    <p class="story-meta">{{ page.date | date: "%-d %B %Y" }}</p>
+  </header>
+
+  <div class="story-body">
+    {{ content }}
+  </div>
+</article>
+
+<section class="sec story-more">
+  <div class="head"><h2 class="title">more stories<span class="dot">.</span></h2></div>
+  <ul class="grid">
+    {% assign shown = 0 %}
+    {% for post in site.posts %}
+      {% if post.url == page.url or shown == 3 %}{% continue %}{% endif %}
+      {% assign shown = shown | plus: 1 %}
+      <li class="item"><a href="{{ post.url | relative_url }}">
+        <div class="pic"><img src="{{ post.featured_image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async"></div>
+        <h3><span>{{ post.title }}</span></h3>
+        <p>{{ post.date | date: "%B %Y" }}</p>
+      </a></li>
+    {% endfor %}
+  </ul>
+</section>

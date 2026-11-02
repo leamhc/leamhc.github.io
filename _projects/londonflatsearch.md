@@ -1,6 +1,10 @@
 ---
 title: '⋱ A Tool For Your London Flat Search'
 subtitle: '{Interactive Bubble Chart}: Rstudio, D3.js, API'
+# For the home page's chart filter
+chart_type: 'Interactive bubble chart'
+tools: ['R', 'D3.js']
+topic: 'life'
 date: 2025-01-01 00:00:00
 description: 
 featured_image: '/images/project/mp4/londonflatsearch.mp4'

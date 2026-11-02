@@ -1,6 +1,10 @@
 ---
 title: '⋱ Two Fixed Rate Loans in a Week'
 subtitle: '[Bubble Chart]: R, Adobe Illustrator, API'
+# For the home page's chart filter
+chart_type: 'Bubble chart'
+tools: ['R', 'Illustrator']
+topic: 'money'
 date: 2025-02-20 00:00:00
 description: 
 featured_image: '/images/project/png/gettyimagex/getty.png'

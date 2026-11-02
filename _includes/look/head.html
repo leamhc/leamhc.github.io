@@ -1,0 +1,32 @@
+{% comment %}
+  The grainy Daylight look (cream paper, one yellow accent, DM Sans), shared by the home page
+  and the stories. These pages stand on their own: no theme header, footer or ajax loading.
+  The other pages still use default.html.
+{% endcomment %}
+<!doctype html>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% if page.layout == 'home' %}{{ site.data.settings.basic_settings.site_title }} – {{ page.title }}{% else %}{{ page.title }} – {{ site.data.settings.basic_settings.site_title }}{% endif %}</title>
+	<meta name="description" content="{{ page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | xml_escape }}">
+	<link rel="shortcut icon" href="{{ site.data.settings.basic_settings.favicon_image | relative_url }}">
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="{{ site.data.settings.basic_settings.site_title }} – {{ page.title }}">
+	<meta name="twitter:description" content="{{ page.description | strip_html | xml_escape }}">
+	<meta property="og:title" content="{{ site.data.settings.basic_settings.site_title }} – {{ page.title }}">
+	<meta property="og:description" content="{{ page.description | strip_html | xml_escape }}">
+	{% if page.featured_image %}<meta name="twitter:image:src" content="{{ page.featured_image | absolute_url }}">
+	<meta property="og:image" content="{{ page.featured_image | absolute_url }}">{% endif %}
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{{ '/css/home.css' | relative_url }}">
+	<script>document.documentElement.classList.add("js");</script>
+	<!-- Shared behaviour (scroll reveals, the ≡ menu); deferred, so it runs before any page script that is also deferred. -->
+	<script defer src="{{ '/js/look.js' | relative_url }}"></script>
+
+	{% if site.data.settings.advanced_settings.analytics_code %}{{ site.data.settings.advanced_settings.analytics_code }}{% endif %}
+</head>

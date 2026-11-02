@@ -1,51 +1,87 @@
 ---
-layout: default
-title: Data Journalist
-description: Click to see some pretty data
-featured_image: 
+layout: home
+title: Multimedia Journalist
+description: Lea Mok, a multimedia journalist in London making data-driven stories.
+featured_image: /images/me/lea-cutout.png
+# YouTube id of the showreel embedded first on the page
+showreel: q-W3SaOutMo
 ---
+<section class="hero" data-hero>
+  <div class="hero-text" data-hero-text>
+    <h1 class="big">Lea Mok<span class="dot">.</span></h1>
+    <p class="lede">Multimedia journalist making data-driven stories, turning money, politics and arts into stories.</p>
+    <ul class="jump">
+      <li><a class="u" href="#showreel">Showreel</a></li>
+      <li><a class="u" href="#work">Selected work</a></li>
+      <li><a class="u" href="#charts">Charts</a></li>
+      <li><a class="u" href="#photos">Photojournalism</a></li>
+      <li><a class="u" href="#about">About me</a></li>
+    </ul>
+  </div>
+  <figure class="portrait">
+    <img src="{{ '/images/me/lea-cutout.png' | relative_url }}" alt="Lea Mok sitting on a chair" decoding="async" width="857" height="794">
+    <svg class="doodle arrow" viewBox="0 0 160 110" aria-hidden="true"><path d="M154 20 C120 2 78 4 80 30 C82 52 114 46 108 26 C100 4 46 18 20 84"/><path d="M10 70 L19 86 L35 77"/></svg>
+    <svg class="doodle ring" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13"/></svg>
+    <svg class="doodle diamond" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L22 12 L12 22 L2 12 Z"/></svg>
+  </figure>
+  <div class="pacman" data-pacman aria-hidden="true"></div>
+</section>
 
-<section class="portfolio portfolio--dataviz">
+<section class="sec" id="showreel">
+  <div class="head"><h2 class="title">showreel<span class="dot">.</span></h2></div>
+  <div class="reel">
+    <iframe src="https://www.youtube-nocookie.com/embed/{{ page.showreel }}?rel=0&amp;playsinline=1" title="Lea Mok showreel" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</section>
 
-	<div class="content-wrap portfolio-wrap">
+<section class="sec" id="work">
+  <div class="head"><h2 class="title">selected work<span class="dot">.</span></h2></div>
+  <p class="sub">Video, features and news for Hong Kong Free Press, Stand News and Bloomberg.</p>
+  <ul class="grid" data-grid="work"></ul>
+  <p class="toggle" data-toggle="work" hidden></p>
+</section>
 
-		{% for project in site.projects reversed %}
+<section class="sec" id="charts">
+  <div class="head"><h2 class="title">the charts<span class="dot">.</span></h2></div>
+  <p class="sentence">
+    Showing charts about <button class="w" type="button" data-key="topic"><span>anything</span></button>,
+    made with <button class="w" type="button" data-key="tool"><span>any tool</span></button>.<span class="count" data-count></span>
+  </p>
+  <div class="choices" data-choices></div>
+  <ul class="grid" data-grid="charts"></ul>
+  <p class="empty" data-empty hidden>Nothing fits that yet. <button type="button" data-reset>Show everything</button></p>
+  <p class="toggle" data-toggle="charts" hidden></p>
+</section>
 
-		<div class="portfolio-item">
+<section class="sec" id="photos">
+  <div class="head"><h2 class="title">photojournalism<span class="dot">.</span></h2></div>
+  <p class="sub">Hong Kong, 2022 to 2023.</p>
+  <ul class="grid" data-grid="photos"></ul>
+  <p class="toggle" data-toggle="photos" hidden></p>
+</section>
 
-			<a class="portfolio-item__link" href="{{ project.url | relative_url }}">
-				{% assign featured_media = project.featured_image | downcase %}
-
-				<div class="portfolio-item__image">
-					{% if featured_media contains '.mp4' or featured_media contains '.webm' %}
-					<video
-						autoplay
-						muted
-						loop
-						playsinline
-						preload="metadata"
-						{% if project.featured_poster %}poster="{{ project.featured_poster | relative_url }}"{% endif %}
-						aria-label="{{ project.title }}">
-						<source src="{{ project.featured_image | relative_url }}" type="video/{% if featured_media contains '.webm' %}webm{% else %}mp4{% endif %}">
-					</video>
-					{% else %}
-					<img src="{{ project.featured_image | relative_url }}" alt="{{ project.title }}" loading="lazy" decoding="async">
-					{% endif %}
-				</div>
-
-				<div class="portfolio-item__content">
-					<div class="portfolio-item__info">
-						<h2 class="portfolio-item__title">{{ project.title }}</h2>
-						<p class="portfolio-item__subtitle">{{ project.subtitle }}</p>
-					</div>
-				</div>
-
-			</a>
-
-		</div>
-
-		{% endfor %}
-
-	</div>
-
+<section class="sec" id="about">
+  <div class="head"><h2 class="title">about me<span class="dot">.</span></h2></div>
+  <div class="about">
+    <img src="{{ '/images/me/me.jpg' | relative_url }}" alt="Lea Mok" loading="lazy">
+    <div>
+      <p class="lede" style="margin-bottom:18px">A Hong Kong-born journalist in London and a politics graduate who makes video and data explainers. Adobe user, RStudio regular and Python tinkerer.</p>
+      <div class="about-cols">
+        <div><h3>Work</h3><ul>
+          <li><a class="u" href="https://www.risk.net/author/lea-mok">Risk.net</a>, Infopro Digital <span>London</span></li>
+          <li><a class="u" href="https://www.bondradar.com/">Bond Radar</a> <span>London</span></li>
+          <li><a class="u" href="https://www.bloomberg.com">Bloomberg News</a>, intern <span>Hong Kong</span></li>
+          <li><a class="u" href="https://hongkongfp.com/author/leamok/">Hong Kong Free Press</a> and Stand News <span>Hong Kong</span></li>
+        </ul></div>
+        <div><h3>Education</h3><ul>
+          <li>Comparative Politics, <a class="u" href="https://www.lse.ac.uk/">LSE</a> <span>Statistics and Data Science; Quantitative Hansard Analysis in R</span></li>
+          <li>Journalism, <a class="u" href="https://www.cuhk.edu.hk/english/index.html">CUHK</a></li>
+        </ul></div>
+        <div><h3>Tools</h3><ul>
+          <li>Adobe for video and graphics</li>
+          <li>R, D3.js, Python and Flourish for data</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
 </section>

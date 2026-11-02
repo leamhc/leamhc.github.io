@@ -1,6 +1,10 @@
 ---
 title: '⋱ How HK Couples Meet'
 subtitle: '{Gallery}: flourish, Canva'
+# For the home page's chart filter
+chart_type: 'Gallery'
+tools: ['Flourish']
+topic: 'life'
 date: 2024-10-01 00:00:00
 description: 
 featured_image: '/images/project/png/hkfertilityrate/35.jpg'

@@ -1,6 +1,10 @@
 ---
 title: '⋱ Wall Street Exodus From Climate Alliance'
 subtitle: '{Treemap}: R, Adobe Illustrator, Bloomberg Terminal'
+# For the home page's chart filter
+chart_type: 'Treemap'
+tools: ['R', 'Illustrator']
+topic: 'money'
 date: 2025-2-24 00:00:00
 description: 
 featured_image: '/images/project/png/nzba/NZBAtreemap.png'

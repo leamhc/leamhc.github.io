@@ -1,6 +1,10 @@
 ---
 title: '⋱ Where Are The Best US Universities'
 subtitle: '{Interactive Map}: Rstudio'
+# For the home page's chart filter
+chart_type: 'Interactive map'
+tools: ['R']
+topic: 'life'
 date: 2024-06-30 00:00:00
 description: 
 featured_image: '/images/project/gif/us_universities.gif'

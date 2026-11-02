@@ -1,0 +1,211 @@
+/* The grainy Daylight look (cream paper, one yellow accent, DM Sans): the home page and the stories.
+   Used by _layouts/look.html and the layouts built on it; the other pages keep css/style.scss. */
+:root {
+  /* Fine grain, and a coarser, blotchier layer for paper texture. */
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.04' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  /* Cursors: a two-tone ink arrow; over anything clickable its wing turns yellow. Tip is the hotspot. */
+  --cursor: url("../images/cursor/arrow.svg") 3 2, auto;
+  --cursor-link: url("../images/cursor/arrow-link.svg") 3 2, pointer;
+  --title-size: clamp(32px, 5vw, 52px);
+  --bg: #f4efe6; --ink: #1a1410; --accent: #f2a900; --line: rgba(26, 20, 16, .85); --faint: rgba(26, 20, 16, .12);
+  --soft: rgba(26, 20, 16, .6); --blank: #e2d9c8; --overlay: rgba(244, 239, 230, .72);
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { cursor: var(--cursor); margin: 0; min-height: 100dvh; background: var(--bg); color: var(--ink); font-family: "DM Sans", system-ui, sans-serif; font-size: 15px; line-height: 1.5; position: relative; isolation: isolate; -webkit-font-smoothing: antialiased; }
+/* Grain over everything, and the warm darker edge. */
+body::after { content: ""; position: fixed; inset: 0; z-index: 60; pointer-events: none; background-image: var(--noise); background-size: 180px; opacity: .3; mix-blend-mode: multiply; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 59; pointer-events: none; box-shadow: inset 0 0 90px 24px rgba(90, 40, 10, .2); }
+/* The background (paper texture and glow) stays put while the page scrolls over it. */
+.sky { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.sky::after { content: ""; position: absolute; inset: 0; background-image: var(--fibre); opacity: .14; mix-blend-mode: multiply; }
+.glow { position: absolute; border-radius: 50%; width: 700px; height: 700px; left: -300px; top: 90px; background: radial-gradient(circle closest-side, rgba(255, 140, 40, .8) 0%, rgba(230, 90, 30, .5) 40%, rgba(120, 30, 10, .16) 70%, rgba(244, 239, 230, 0) 100%);
+  /* It breathes (slow swell and fade) and wanders a little, on two clocks so it never repeats exactly. */
+  animation: breathe 6s ease-in-out infinite alternate, wander 18s ease-in-out infinite alternate; will-change: scale, translate; }
+@keyframes breathe { from { scale: .78; opacity: .7; } to { scale: 1.18; opacity: 1; } }
+@keyframes wander { 0% { translate: 0 0; } 33% { translate: 140px -70px; } 66% { translate: 40px 110px; } 100% { translate: 170px 50px; } }
+a { color: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 16px 16px 40px; }
+@media (min-width: 720px) { .wrap { padding: 24px 36px 0; } }
+.dot { color: var(--accent); }
+
+/* Links and buttons in the sentence-filter style: a yellow underline, no boxes. */
+a { cursor: var(--cursor-link); }
+.u { color: inherit; text-decoration: none; border-bottom: 2px solid var(--accent); padding: 0 1px; transition: background-color .2s, color .2s; }
+.u:hover { background: var(--accent); color: #111; border-radius: 4px; }
+.u.strong { font-weight: 700; }
+
+/* Top bar: name, ≡ */
+.bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.home { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; text-decoration: none; }
+.circle { width: 34px; height: 34px; flex: none; border-radius: 50%; border: 1.3px solid currentColor; background: none; color: inherit; display: grid; place-items: center; font: inherit; font-size: 13px; cursor: var(--cursor-link); padding: 0; text-decoration: none; transition: background-color .2s, color .2s, border-color .2s; }
+.circle:hover { background: var(--accent); border-color: var(--accent); color: #111; }
+.lines { display: grid; gap: 4px; } .lines i { display: block; width: 13px; height: 1.5px; background: currentColor; }
+
+/* Top row: section links on the left, get in touch on the right; ≡ only on phones. */
+.topnav { display: none; gap: 26px; font-size: 14px; font-weight: 500; }
+.topnav a { text-decoration: none; border-bottom: 2px solid transparent; transition: border-color .2s; }
+.topnav a:hover { border-bottom-color: var(--accent); }
+.cta-top { display: none; font-size: 14px; }
+@media (min-width: 900px) { .topnav, .cta-top { display: flex; } .bar [data-menu-open] { display: none; } }
+
+/* Header: words on the left, the photo in an arch on the right, with pen doodles. */
+.hero { position: relative; padding: clamp(24px, 5vh, 48px) 0 0; display: grid; gap: 28px; align-items: end; }
+@media (min-width: 900px) { .hero { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 32px; } }
+.hero-text { display: grid; gap: 16px; align-content: center; align-self: center; }
+/* Room under the words for Pac-Man to roam. */
+@media (min-width: 900px) { .hero-text { margin-bottom: 100px; } }
+.portrait { position: relative; margin: 0; width: min(calc(100% - 32px), 560px); aspect-ratio: 857 / 794; justify-self: center; z-index: 1;
+  margin-bottom: 8px; }
+/* On wide screens she drops past the header so her chair sits on the line under "showreel." */
+@media (min-width: 900px) { .portrait { margin-bottom: calc(-1 * (var(--title-size) * .9 + 10px)); } }
+@media (min-width: 900px) { .portrait { justify-self: end; margin-right: 24px; } }
+/* The cut-out (black and white, transparent around her) stands in front of the arch, head above its top. */
+.portrait::before { content: ""; position: absolute; inset: 24% 3% 0 24%; border-radius: 999px 999px 0 0; background: radial-gradient(circle at 50% 30%, #ffc874, #f2a14a 70%); }
+.portrait img { position: relative; display: block; width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
+.doodle { position: absolute; fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.doodle.arrow { width: 130px; left: -70px; top: 30%; display: none; }
+@media (min-width: 900px) { .doodle.arrow { display: block; } }
+.doodle.ring { width: 30px; right: -14px; top: 12%; }
+.doodle.diamond { width: 22px; left: 8%; bottom: 46%; }
+.doodle.arrow path { stroke-dasharray: 400; stroke-dashoffset: 400; animation: draw 1.1s .4s var(--ease) forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.big { margin: 0; font-weight: 800; font-size: clamp(52px, 10vw, 104px); letter-spacing: -0.06em; line-height: .84; margin-left: -.04em; }
+.lede { margin: 0; max-width: 40ch; font-size: clamp(16px, 1.8vw, 19px); line-height: 1.4; letter-spacing: -0.01em; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; font-size: 16px; font-weight: 500; }
+/* Jump list: the sections as underlined words, like the other links. */
+.jump { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 15px; font-weight: 500; }
+
+/* Section titles: heavy, tight, with the yellow full stop */
+.title { margin: 0; font-weight: 800; font-size: var(--title-size); letter-spacing: -0.05em; line-height: .9; }
+.head { position: relative; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; padding-bottom: 10px; }
+/* The rule under a title, drawn as a line so it can sweep in from the left. Sits where a bottom border would. */
+.head::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1.3px; height: 1.3px; background: var(--line); transform-origin: left; transition: transform 1.1s var(--ease) .15s; }
+
+/* On scroll: titles, lines, text and thumbnails ease up into place as they come into view.
+   Only when scripts run (html.js), so nothing stays hidden without them. */
+.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: var(--d, 0ms); }
+.js .reveal.seen { opacity: 1; transform: none; }
+.js .head.reveal:not(.seen)::after { transform: scaleX(0); }
+
+/* Filters as a fill-in sentence */
+.sentence { margin: 14px 0 0; font-size: 17px; line-height: 1.7; font-weight: 500; letter-spacing: -0.01em; }
+.sentence .count { color: var(--soft); font-weight: 400; margin-left: 6px; font-size: 14px; }
+.w { background: none; border: 0; border-bottom: 2px solid var(--accent); padding: 0 2px; margin: 0; font: inherit; color: inherit; cursor: var(--cursor-link); white-space: nowrap; border-radius: 0; transition: background-color .2s, color .2s; }
+.w::after { content: ""; display: inline-block; width: 6px; height: 6px; border-right: 1.8px solid currentColor; border-bottom: 1.8px solid currentColor; transform: rotate(45deg); margin: 0 3px 4px 7px; transition: transform .25s var(--ease); }
+.w.open { background: var(--accent); color: #111; border-radius: 4px; }
+.w.open::after { transform: rotate(-135deg); margin-bottom: 0; }
+.w span { display: inline-block; }
+.w span.swap { animation: swap .3s var(--ease); }
+@keyframes swap { from { transform: translateY(60%); opacity: 0; } }
+/* Choices are more underlined words, not chips. */
+.choices { display: flex; flex-wrap: wrap; gap: 4px 16px; overflow: hidden; max-height: 0; opacity: 0; transition: max-height .3s var(--ease), opacity .2s, margin .3s var(--ease); font-size: 15px; }
+.choices.open { max-height: 80px; opacity: 1; margin-top: 4px; }
+.choices button { background: none; border: 0; border-bottom: 2px solid transparent; padding: 0 1px; font: inherit; color: var(--soft); cursor: var(--cursor-link); opacity: 0; transform: translateX(-8px); transition: opacity .2s, transform .25s var(--ease), color .2s, border-color .2s; }
+.choices.open button { opacity: 1; transform: none; transition-delay: calc(var(--i) * 30ms); }
+.choices button:hover { color: var(--ink); border-bottom-color: var(--accent); }
+.choices button.on { color: var(--ink); font-weight: 700; border-bottom-color: var(--accent); }
+
+/* Same sizes as the old grid: halves, then thirds; square corners, natural heights. */
+.grid { list-style: none; margin: 12px -5px 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+@media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.item { padding: 5px; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+.item a { display: block; text-decoration: none; }
+.pic { background: var(--blank); overflow: hidden; }
+.pic img, .pic video { display: block; width: 100%; height: auto; transition: transform .5s var(--ease); }
+.item a:hover .pic img, .item a:hover .pic video { transform: scale(1.025); }
+.item h3 { margin: 8px 0 0; font-size: 15px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.25; }
+.item h3 span { background-image: linear-gradient(var(--accent), var(--accent)); background-size: 0 2px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .3s var(--ease); }
+.item a:hover h3 span { background-size: 100% 2px; }
+.item p { margin: 2px 0 6px; font-size: 13px; color: var(--soft); }
+.empty { margin: 8px 0; color: var(--soft); }
+.empty button { background: none; border: 0; border-bottom: 2px solid var(--accent); padding: 0; font: inherit; color: var(--ink); cursor: var(--cursor-link); }
+
+.foot { margin-top: clamp(44px, 8vh, 80px); padding-bottom: 32px; display: grid; gap: 12px; }
+.foot .bottom { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 10px; border-top: 1px solid var(--faint); font-size: 13px; color: var(--soft); }
+
+/* Each tab of the site is a section here, six thumbnails until opened. */
+.sec { margin-top: clamp(40px, 7vh, 72px); scroll-margin-top: 16px; }
+.hero + .sec { margin-top: 0; }
+.sub { margin: 10px 0 0; font-size: 15px; color: var(--soft); max-width: 60ch; }
+.toggle { margin: 10px 0 0; font-size: 16px; font-weight: 500; }
+.toggle[hidden] { display: none; }
+.toggle .w::after { margin-bottom: 4px; }
+.toggle .w.open { background: none; color: inherit; }
+.toggle .w.open:hover, .toggle .w:hover { background: var(--accent); color: #111; border-radius: 4px; }
+
+/* The showreel: full width so YouTube picks a high quality. */
+.reel { position: relative; margin-top: 12px; aspect-ratio: 16 / 9; background: #111; }
+.reel iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+
+/* Photos keep their own proportions; the caption is the date and a line. */
+.item.photo p { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* About: portrait, then three short lists side by side. */
+.about { margin-top: 14px; display: grid; gap: 20px; }
+@media (min-width: 820px) { .about { grid-template-columns: 220px 1fr; gap: 28px; } }
+.about img { width: 100%; max-width: 220px; display: block; }
+.about-cols { display: grid; gap: 18px; }
+@media (min-width: 620px) { .about-cols { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.about h3 { margin: 0 0 6px; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; padding-bottom: 6px; border-bottom: 1px solid var(--faint); }
+.about ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; font-size: 14px; line-height: 1.4; }
+.about li span { color: var(--soft); }
+
+/* The ≡ menu: the page blurs, words slide in from the right. */
+.menu { position: fixed; inset: 0; z-index: 50; display: none; flex-direction: column; padding: 16px; background: var(--overlay); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+@media (min-width: 720px) { .menu { padding: 24px 36px; } }
+.menu.open { display: flex; animation: fade .22s ease-out both; }
+.menu.leaving { animation: fade-out .2s ease-in forwards; }
+@keyframes fade { from { opacity: 0; } } @keyframes fade-out { to { opacity: 0; } }
+.menu nav { flex: 1; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 2px; }
+.menu nav a { font-size: clamp(26px, 4.4vw, 40px); font-weight: 500; line-height: 1.15; letter-spacing: -0.035em; text-decoration: none; animation: word-in .32s var(--ease) both; animation-delay: calc(var(--i) * 30ms); }
+.menu nav a:hover { color: var(--soft); }
+.menu nav a.on { font-weight: 800; }
+.menu nav a.on::after { content: "."; color: var(--accent); }
+.menu.leaving nav a { animation: word-out .18s ease-in forwards; }
+@keyframes word-in { from { opacity: 0; transform: translateX(40px); } }
+@keyframes word-out { to { opacity: 0; transform: translateX(40px); } }
+
+/* Hero lines rise in on load */
+.hero-text > *, .portrait { animation: rise .6s var(--ease) both; }
+.hero-text > :nth-child(2) { animation-delay: .06s; } .hero-text > :nth-child(3) { animation-delay: .12s; } .portrait { animation-delay: .1s; }
+
+/* Pac-Man, bouncing around the space under the words (wide screens only). */
+.pacman { position: absolute; top: 0; left: 0; z-index: 3; width: 36px; height: 36px; border-radius: 50%; background: var(--accent); pointer-events: none; display: none; will-change: transform; animation: none !important; }
+.pacman::before { content: ""; position: absolute; top: 8px; left: 16px; width: 5px; height: 5px; border-radius: 50%; background: var(--ink); }
+.pacman::after { content: ""; position: absolute; top: 50%; right: -1px; width: 18px; height: 20px; background: var(--bg); clip-path: polygon(0 50%, 100% 0, 100% 100%); transform: translateY(-50%); transform-origin: left center; animation: chomp .26s ease-in-out infinite; }
+@keyframes chomp { 50% { transform: translateY(-50%) scaleY(.3); } }
+@media (min-width: 900px) { .pacman { display: block; } }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ---- Stories: a reading column in the same look ---- */
+.story { padding: clamp(28px, 6vh, 56px) 0 0; }
+.story-head { display: grid; gap: 12px; max-width: 860px; padding-bottom: 18px; border-bottom: 1.3px solid var(--line); }
+.back { justify-self: start; font-size: 14px; font-weight: 500; margin-bottom: 10px; }
+.kicker { margin: 0; font-size: 15px; font-weight: 500; color: var(--soft); }
+.story-title { margin: 0; font-weight: 800; font-size: clamp(34px, 5.6vw, 64px); letter-spacing: -0.05em; line-height: .95; text-wrap: balance; }
+.story-meta { margin: 4px 0 0; font-size: 14px; color: var(--soft); }
+
+/* The text sits in a column about 70 characters wide; pictures and videos run to its full width. */
+.story-body { max-width: 700px; padding-top: 26px; font-size: 17px; line-height: 1.7; }
+.story-body > * { margin: 0 0 18px; }
+.story-body h2 { margin: 40px 0 14px; font-size: clamp(22px, 2.6vw, 28px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; }
+.story-body h3 { margin: 30px 0 10px; font-size: 19px; font-weight: 700; letter-spacing: -0.015em; }
+.story-body img { display: block; width: 100%; height: auto; margin: 6px 0; }
+.story-body iframe { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 0; background: #111; }
+.story-body a { color: inherit; text-decoration: none; border-bottom: 2px solid var(--accent); transition: background-color .2s, color .2s; }
+.story-body a:hover { background: var(--accent); color: #111; border-radius: 3px; }
+.story-body em { color: var(--soft); }
+.story-body p > em:only-child { display: block; font-size: 14px; margin-top: -8px; }
+.story-body blockquote { margin: 24px 0; padding-left: 16px; border-left: 3px solid var(--accent); font-size: 19px; }
+.story-body strong { font-weight: 700; }
+
+.story-more { margin-top: clamp(56px, 10vh, 96px); }

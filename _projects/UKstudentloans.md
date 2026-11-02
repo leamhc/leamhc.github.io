@@ -1,6 +1,10 @@
 ---
 title: '⋱ UK Student Loan borrowers stimulator'
 subtitle: '[Jittered plot]: D3.js'
+# For the home page's chart filter
+chart_type: 'Jittered plot'
+tools: ['D3.js']
+topic: 'money'
 date: 2026-01-21 00:00:00
 description: 
 featured_image: '/images/project/mp4/UKstudentloans.mp4'
