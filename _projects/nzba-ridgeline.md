@@ -24,7 +24,7 @@ The impact of this exodus remains unclear, but the message is obvious - talking 
 
 ## The Graph
 
-This is a graph from the same story as this one [here](/project/nzba-treemap).
+This is a graph from the same story as this one [here](/project/nbza-treemap).
 
 This is my first article published on Bond Radar’s platform. The exodus of Wall Street giants has been widely covered by major media outlets as well as the editorial and research branches of financial firms - most accompanied their articles with line graphs showing the departing U.S. banks' fossil fuel financing over the years. (See the [article and graphs](https://www.twentyfouram.com/insights/trump-dunks-on-the-nzba-with-wall-street-exodus?utm_campaign=Blog&utm_content=Organic+Post&utm_medium=Social+Organic&utm_source=LinkedIn&utm_term=Global)) by one of our interviewees.
 

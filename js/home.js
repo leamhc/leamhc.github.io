@@ -75,6 +75,18 @@
     if (!open[key]) document.getElementById(key).scrollIntoView({ behavior: still.matches ? "auto" : "smooth" });
   }));
   draw("work"); draw("charts"); draw("photos");
+  // Arriving with #section in the address: the grids and thumbnails above it grow as they
+  // load, so keep the section in view until the page settles or the visitor scrolls.
+  (() => {
+    const target = location.hash && document.getElementById(location.hash.slice(1));
+    if (!target) return;
+    const pin = () => target.scrollIntoView({ behavior: "instant" });
+    const ro = new ResizeObserver(pin);
+    const stop = () => ro.disconnect();
+    pin(); ro.observe(document.body);
+    ["wheel", "touchstart", "keydown", "mousedown"].forEach((t) => addEventListener(t, stop, { once: true, passive: true }));
+    setTimeout(stop, 4000);
+  })();
 
   // Photos open large over the page, with their full caption; arrows step through them.
   (() => {

@@ -1,0 +1,17 @@
+{% comment %}
+  Old pages from the previous theme now send visitors to the matching part of the home page,
+  so links shared before the redesign still land somewhere. Set redirect_to in front matter.
+{% endcomment %}
+{% assign to = page.redirect_to | relative_url %}
+<!doctype html>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>Lea M.</title>
+	<meta name="robots" content="noindex">
+	<link rel="canonical" href="{{ page.redirect_to | absolute_url }}">
+	<meta http-equiv="refresh" content="0; url={{ to }}">
+	<script>location.replace({{ to | jsonify }});</script>
+</head>
+<body><a href="{{ to }}">Continue to Lea Mok’s site</a></body>
+</html>

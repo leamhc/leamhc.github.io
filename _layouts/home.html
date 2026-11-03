@@ -14,7 +14,7 @@ layout: look
 			{ "t": {{ post.title | jsonify }}, "date": {{ post.date | date: "%B %Y" | jsonify }}, "img": {{ post.featured_image | relative_url | jsonify }}, "url": {{ post.url | relative_url | jsonify }} }{% unless forloop.last %},{% endunless %}{% endfor %}
 		],
 		photos: [{% for ph in site.data.photojournalism.photos %}
-			{ "t": {{ ph.title | jsonify }}, "sub": {{ ph.subtitle | jsonify }}, "img": {{ ph.image | relative_url | jsonify }}, "url": {{ '/photojournalism' | relative_url | jsonify }} }{% unless forloop.last %},{% endunless %}{% endfor %}
+			{ "t": {{ ph.title | jsonify }}, "sub": {{ ph.subtitle | jsonify }}, "img": {{ ph.image | relative_url | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}
 		],
 	};
 </script>

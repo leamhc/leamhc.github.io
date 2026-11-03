@@ -55,3 +55,10 @@ plugins:
 paginate: 9
 paginate_path: "/blog/page:num/"
   
+exclude:
+  - template
+  - design-demo
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
